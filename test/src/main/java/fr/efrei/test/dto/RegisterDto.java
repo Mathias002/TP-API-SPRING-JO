@@ -8,7 +8,9 @@ public class RegisterDto {
 	@StrongPassword
 	private String password;
 
-	private String fullName;
+	private String Nom;
+	
+	private String Prenom;
 
 	public String getEmail() {
 		return email;
@@ -26,11 +28,19 @@ public class RegisterDto {
 		this.password = password;
 	}
 
-	public String getFullName() {
-		return fullName;
+	public String getNom() {
+		return Nom;
 	}
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
+	public void setNom(String Nom) {
+		this.Nom = Nom;
+	}
+	
+	public String getPrenom() {
+		return Prenom;
+	}
+
+	public void setPrenom(String Prenom) {
+		this.Prenom = Prenom;
 	}
 }

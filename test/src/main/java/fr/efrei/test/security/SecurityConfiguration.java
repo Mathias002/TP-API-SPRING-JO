@@ -1,6 +1,6 @@
 package fr.efrei.test.security;
 
-import fr.efrei.test.UserRepository;
+import fr.efrei.test.SpectatorRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,9 +13,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 public class SecurityConfiguration {
-	private final UserRepository userRepository;
+	private final SpectatorRepository userRepository;
 
-	public SecurityConfiguration(UserRepository userRepository) {
+	public SecurityConfiguration(SpectatorRepository userRepository) {
 		this.userRepository = userRepository;
 	}
 

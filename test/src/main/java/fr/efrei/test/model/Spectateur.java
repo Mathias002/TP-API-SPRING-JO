@@ -17,33 +17,39 @@ import java.util.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class User implements UserDetails {
+public class Spectateur implements UserDetails{
+    
 	@Id
-	@GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.UUID)
 	@Column(nullable = false)
-	private String id;
+    private String Uuid_spectateur;
 
-	@Column(nullable = false)
-	private String fullName;
+    @Column(unique = true, length = 100, nullable = false)
+    private String Email;
 
-	@Column(unique = true, length = 100, nullable = false)
-	private String email;
+    @Column(nullable = false)
+    private String Password;
 
-	@Column(nullable = false)
-	private String password;
+    @Column(nullable = false, length = 50)
+    private String Nom;
 
-	@CreationTimestamp
-	@Column(updatable = false, name = "created_at")
+    @Column(nullable = false, length = 50)
+    private String Prenom;
+
+    @Column(nullable = true)
+    private Float Solde;
+
+    @CreationTimestamp
+	@Column(updatable = false)
 	private Date createdAt;
 
 	@UpdateTimestamp
-	@Column(name = "updated_at")
 	private Date updatedAt;
 
 	@Enumerated(EnumType.STRING)
 	private Role role;
 
-	@Override
+    @Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Set<Role> roles = Set.of(role);
 		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
@@ -54,13 +60,13 @@ public class User implements UserDetails {
 		return authorities;
 	}
 
-	@Override
+    @Override
 	public String getUsername() {
-		return email;
+		return Email;
 	}
 
 	public String getPassword() {
-		return password;
+		return Password;
 	}
 
 	@Override
