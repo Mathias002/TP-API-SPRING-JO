@@ -14,5 +14,5 @@ import java.lang.annotation.Target;
 public @interface StrongPassword {
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
-	String message() default "Your password isn't strong enough";
+	String message() default "Le mot de passe doit faire minimun 9 caracthères et doit contenir minuscule / majuscule / chiffre / caracthère spécial";
 }

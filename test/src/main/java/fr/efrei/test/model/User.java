@@ -1,6 +1,7 @@
 package fr.efrei.test.model;
 
 import fr.efrei.test.constants.Role;
+import fr.efrei.test.validator.StrongPassword;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -10,7 +11,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.*;
-
 
 @Getter
 @Setter

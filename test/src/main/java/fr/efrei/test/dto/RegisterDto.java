@@ -1,9 +1,11 @@
 package fr.efrei.test.dto;
 
+import fr.efrei.test.validator.StrongPassword;
 
 public class RegisterDto {
 	private String email;
 
+	@StrongPassword
 	private String password;
 
 	private String fullName;
