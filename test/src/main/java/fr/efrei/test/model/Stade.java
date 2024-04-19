@@ -22,10 +22,10 @@ public class Stade {
     private Integer Capacite_stade;
 
     @Column(nullable = false)
-    private String Est_reserve;
+    private boolean Est_reserve;
 
 
-    public Stade(String Uuid_stade, String Nom_stade, String Adresse_stade, Integer Capacite_stade, String Est_reserve) {
+    public Stade(String Uuid_stade, String Nom_stade, String Adresse_stade, Integer Capacite_stade, boolean Est_reserve) {
         this.Uuid_stade = Uuid_stade;
         this.Nom_stade = Nom_stade;
         this.Adresse_stade = Adresse_stade;
@@ -33,8 +33,6 @@ public class Stade {
         this.Est_reserve = Est_reserve;
     }
     
-    
-
     /**
      * @return String return the Uuid_stade
      */
@@ -94,14 +92,14 @@ public class Stade {
     /**
      * @return String return the Est_reserve
      */
-    public String getEst_reserve() {
+    public boolean getEst_reserve() {
         return Est_reserve;
     }
 
     /**
      * @param Est_reserve the Est_reserve to set
      */
-    public void setEst_reserve(String Est_reserve) {
+    public void setEst_reserve(boolean Est_reserve) {
         this.Est_reserve = Est_reserve;
     }
 

@@ -24,6 +24,10 @@ public class Commande {
 
     private LocalDateTime Deleted_at = null;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "commande_uuid")
+    private Set<Billet> billets = new HashSet<>();
+
 
     public Commande(String Uuid_commande, Integer Numero_commande, Date Created_at, LocalDateTime Deleted_at) {
         this.Uuid_commande = Uuid_commande;
@@ -42,10 +46,6 @@ public class Commande {
 
     public Integer getNumero_commande() {
         return this.Numero_commande;
-    }
-
-    public void setNumero_commande(Integer Numero_commande) {
-        this.Numero_commande = Numero_commande;
     }
 
     public Date getCreated_at() {

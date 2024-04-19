@@ -1,7 +1,6 @@
 package fr.efrei.test.model;
 
 import fr.efrei.test.constants.Role;
-import fr.efrei.test.validator.StrongPassword;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -48,6 +47,10 @@ public class Spectateur implements UserDetails{
 
 	@Enumerated(EnumType.STRING)
 	private Role role;
+
+	@OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "spectateur_uuid")
+    private Set<Billet> billets = new HashSet<>();
 
     @Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

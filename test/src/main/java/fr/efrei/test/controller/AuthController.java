@@ -3,7 +3,7 @@ package fr.efrei.test.controller;
 import fr.efrei.test.dto.LoginDto;
 import fr.efrei.test.dto.LoginResponse;
 import fr.efrei.test.dto.RegisterDto;
-import fr.efrei.test.model.User;
+import fr.efrei.test.model.Spectateur;
 import fr.efrei.test.service.AuthService;
 import fr.efrei.test.security.JwtService;
 import jakarta.validation.Valid;
@@ -27,15 +27,15 @@ public class AuthController {
 	}
 
 	@PostMapping("/signup")
-	public ResponseEntity<User> register(@Valid @RequestBody RegisterDto registerUserDto) {
-		User registeredUser = authenticationService.signup(registerUserDto);
+	public ResponseEntity<Spectateur> register(@Valid @RequestBody RegisterDto registerUserDto) {
+		Spectateur registeredUser = authenticationService.signup(registerUserDto);
 		return new ResponseEntity<>(registeredUser, HttpStatus.CREATED);
 	}
 
 	@PostMapping("/login")
 	public ResponseEntity<LoginResponse> authenticate(
 			@RequestBody LoginDto loginUserDto) {
-		User authenticatedUser = authenticationService.authenticate(loginUserDto);
+		Spectateur authenticatedUser = authenticationService.authenticate(loginUserDto);
 
 		String jwtToken = jwtService.generateToken(authenticatedUser);
 

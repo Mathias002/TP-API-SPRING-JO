@@ -28,10 +28,14 @@ public class Epreuve {
     private Date Date_epreuve;
     
     @Column(nullable = false)
-    private Boolean Est_ouverte = true;
+    private boolean Est_ouverte = true;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "epreuve_uuid")
+    private Set<Billet> billets = new HashSet<>();
 
 
-    public Epreuve(String Uuid_epreuve, String Libelle_epreuve, String Description_epreuve, Time Duree_epreuve, Date Date_epreuve, Boolean Est_ouverte) {
+    public Epreuve(String Uuid_epreuve, String Libelle_epreuve, String Description_epreuve, Time Duree_epreuve, Date Date_epreuve, boolean Est_ouverte) {
         this.Uuid_epreuve = Uuid_epreuve;
         this.Libelle_epreuve = Libelle_epreuve;
         this.Description_epreuve = Description_epreuve;
@@ -112,16 +116,16 @@ public class Epreuve {
     }
 
     /**
-     * @return Boolean return the Est_ouverte
+     * @return boolean return the Est_ouverte
      */
-    public Boolean isEst_ouverte() {
+    public boolean isEst_ouverte() {
         return Est_ouverte;
     }
 
     /**
      * @param Est_ouverte the Est_ouverte to set
      */
-    public void setEst_ouverte(Boolean Est_ouverte) {
+    public void setEst_ouverte(boolean Est_ouverte) {
         this.Est_ouverte = Est_ouverte;
     }
 

@@ -1,6 +1,6 @@
 package fr.efrei.test.repository;
 
-import fr.efrei.test.model.Student;
+import fr.efrei.test.model.Commande;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,15 +8,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface StudentRepository extends JpaRepository<Student, String> {
+public interface CommandeRepository extends JpaRepository<Commande, String> {
 
-	// SELECT * from Student where deleted_at is null
-	List<Student> findAllByDeletedAtNull();
+	// SELECT * from Commande where deleted_at is null
+	List<Commande> findAllByDeletedAtNull();
 
-	// SELECT * FROM Student where uuid = ?
-	Optional<Student> findOneByUuid(String uuid);
+	// SELECT * FROM Commande where Uuid_commande = ?
+	Optional<Commande> findOneByUuid(String Uuid_commande);
 
-	Student save(Student student);
+	Commande save(Commande commande);
 
-	void deleteByUuid(String uuid);
+	void deleteByUuid(String Uuid_commande);
 }
