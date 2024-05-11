@@ -1,54 +1,45 @@
 package fr.efrei.test.model;
 
+import java.time.LocalDateTime;
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.util.*;
 
 @Entity
 public class Billet {
-
-    
-    
+ 
     @Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	@Column(nullable = false)
-    private String Uuid_billet;
-    
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(unique = true)
-    private Integer Numero_billet;
+    private String uuid;
 
     @Column(nullable = false)
     private Float Prix;
+
+    @CreationTimestamp
+	@Column(updatable = false)
+	private Date Created_at;
+
+    private LocalDateTime deletedAt = null;
    
     @Column(nullable = false)
     private boolean IsValid = true;
+    
 
-    public Billet(String Uuid_billet, Integer Numero_billet, Float Prix, boolean IsValid) {
-        this.Uuid_billet = Uuid_billet;
-        this.Numero_billet = Numero_billet;
+    public Billet() {}
+    public Billet(Float Prix, Date Created_at, LocalDateTime deletedAt, boolean IsValid) {
         this.Prix = Prix;
+        this.Created_at = Created_at;
+        this.deletedAt = deletedAt;
         this.IsValid = IsValid;
     }    
 
-
     /**
-     * @return String return the Uuid_billet
+     * @return String return the uuid
      */
     public String getUuid_billet() {
-        return Uuid_billet;
-    }
-
-    /**
-     * @param Uuid_billet the Uuid_billet to set
-     */
-    public void setUuid_billet(String Uuid_billet) {
-        this.Uuid_billet = Uuid_billet;
-    }
-
-    /**
-     * @return Integer return the Numero_billet
-     */
-    public Integer getNumero_billet() {
-        return Numero_billet;
+        return uuid;
     }
 
     /**
@@ -77,6 +68,35 @@ public class Billet {
      */
     public void setIsValid(boolean IsValid) {
         this.IsValid = IsValid;
+    }
+
+
+    /**
+     * @return Date return the Created_at
+     */
+    public Date getCreated_at() {
+        return Created_at;
+    }
+
+    /**
+     * @param Created_at the Created_at to set
+     */
+    public void setCreated_at(Date Created_at) {
+        this.Created_at = Created_at;
+    }
+
+    /**
+     * @return LocalDateTime return the deletedAt
+     */
+    public LocalDateTime getDeleted_at() {
+        return deletedAt;
+    }
+
+    /**
+     * @param deletedAt the deletedAt to set
+     */
+    public void setDeleted_at(LocalDateTime deletedAt) {
+        this.deletedAt = deletedAt;
     }
 
 }

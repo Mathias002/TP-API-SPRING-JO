@@ -5,15 +5,13 @@ import jakarta.persistence.*;
 import java.sql.Time;
 import java.util.*;
 
-import jakarta.persistence.Entity;
-
 @Entity
 public class Epreuve {
 
     @Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	@Column(nullable = false)
-    private String Uuid_epreuve;  
+    private String uuid;  
     
     @Column(nullable = false, length = 100)
     private String Libelle_epreuve;
@@ -34,9 +32,8 @@ public class Epreuve {
     @JoinColumn(name = "epreuve_uuid")
     private Set<Billet> billets = new HashSet<>();
 
-
-    public Epreuve(String Uuid_epreuve, String Libelle_epreuve, String Description_epreuve, Time Duree_epreuve, Date Date_epreuve, boolean Est_ouverte) {
-        this.Uuid_epreuve = Uuid_epreuve;
+    public Epreuve() {}
+    public Epreuve(String Libelle_epreuve, String Description_epreuve, Time Duree_epreuve, Date Date_epreuve, boolean Est_ouverte) {
         this.Libelle_epreuve = Libelle_epreuve;
         this.Description_epreuve = Description_epreuve;
         this.Duree_epreuve = Duree_epreuve;
@@ -46,17 +43,10 @@ public class Epreuve {
     
 
     /**
-     * @return String return the Uuid_epreuve
+     * @return String return the uuid
      */
     public String getUuid_epreuve() {
-        return Uuid_epreuve;
-    }
-
-    /**
-     * @param Uuid_epreuve the Uuid_epreuve to set
-     */
-    public void setUuid_epreuve(String Uuid_epreuve) {
-        this.Uuid_epreuve = Uuid_epreuve;
+        return uuid;
     }
 
     /**
@@ -127,6 +117,20 @@ public class Epreuve {
      */
     public void setEst_ouverte(boolean Est_ouverte) {
         this.Est_ouverte = Est_ouverte;
+    }
+
+    /**
+     * @return Set<Billet> return the billets
+     */
+    public Set<Billet> getBillets() {
+        return billets;
+    }
+
+    /**
+     * @param billets the billets to set
+     */
+    public void setBillets(Set<Billet> billets) {
+        this.billets = billets;
     }
 
 }

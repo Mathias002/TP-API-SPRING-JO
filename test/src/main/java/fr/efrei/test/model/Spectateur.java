@@ -9,6 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
 @Getter
@@ -21,10 +22,10 @@ public class Spectateur implements UserDetails{
 	@Id
     @GeneratedValue(strategy = GenerationType.UUID)
 	@Column(nullable = false)
-    private String Uuid_spectateur;
+    private String uuid;
 
     @Column(unique = true, length = 100, nullable = false)
-    private String Email;
+    private String email;
 
     @Column(nullable = false)
     private String Password;
@@ -44,6 +45,8 @@ public class Spectateur implements UserDetails{
 
 	@UpdateTimestamp
 	private Date updatedAt;
+
+	private LocalDateTime deletedAt = null;
 
 	@Enumerated(EnumType.STRING)
 	private Role role;
@@ -65,7 +68,7 @@ public class Spectateur implements UserDetails{
 
     @Override
 	public String getUsername() {
-		return Email;
+		return email;
 	}
 
 	public String getPassword() {
@@ -90,5 +93,13 @@ public class Spectateur implements UserDetails{
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+
+	public LocalDateTime getDeletedAt() {
+		return deletedAt;
+	}
+
+	public void setDeletedAt(LocalDateTime deletedAt) {
+		this.deletedAt = deletedAt;
 	}
 }

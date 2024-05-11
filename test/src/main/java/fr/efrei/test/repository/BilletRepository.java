@@ -3,7 +3,6 @@ package fr.efrei.test.repository;
 import fr.efrei.test.model.Billet;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -13,10 +12,10 @@ public interface BilletRepository extends JpaRepository<Billet, String> {
 	// SELECT * from Billet where deleted_at is null
 	List<Billet> findAllByDeletedAtNull();
 
-	// SELECT * FROM Billet where Uuid_billet = ?
-	Optional<Billet> findOneByUuid(String Uuid_billet);
+	// SELECT * FROM Billet where uuid = ?
+	Optional<Billet> findOneByUuid(String uuid);
 
 	Billet save(Billet billet);
 
-	void deleteByUuid(String Uuid_billet);
+	void deleteByUuid(String uuid);
 }

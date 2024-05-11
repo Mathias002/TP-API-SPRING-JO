@@ -7,30 +7,22 @@ import java.util.*;
 @Entity
 public class Boutique {
 
-    
     @Id
 	@GeneratedValue(strategy = GenerationType.UUID)
-	@Column(nullable = false)
-    private String Uuid_boutique;
+    private String uuid;
     
     @Column(nullable = false, length = 100)
     private String Nom_boutique;
-    
-    
-    public Boutique(String Uuid_boutique, String Nom_boutique) {
-        this.Uuid_boutique = Uuid_boutique;
-        this.Nom_boutique = Nom_boutique;
-    }
     
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "boutique_uuid")
     private Set<Billet> billets = new HashSet<>();
 
     /**
-     * @return Integer return the Uuid_boutique
+     * @return Integer return the uuid
      */
     public String getId_boutique() {
-        return Uuid_boutique;
+        return uuid;
     }
 
     /**
@@ -45,6 +37,20 @@ public class Boutique {
      */
     public void setNom_boutique(String Nom_boutique) {
         this.Nom_boutique = Nom_boutique;
+    }
+
+    /**
+     * @return Set<Billet> return the billets
+     */
+    public Set<Billet> getBillets() {
+        return billets;
+    }
+
+    /**
+     * @param billets the billets to set
+     */
+    public void setBillets(Set<Billet> billets) {
+        this.billets = billets;
     }
 
 }

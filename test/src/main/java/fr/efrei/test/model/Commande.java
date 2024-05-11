@@ -12,40 +12,26 @@ public class Commande {
     @Id
 	@GeneratedValue(strategy = GenerationType.UUID)
 	@Column(nullable = false)
-    private String Uuid_commande ;
-    
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(unique = true)
-    private Integer Numero_commande ;
+    private String uuid ;
 
     @CreationTimestamp
 	@Column(updatable = false)
 	private Date Created_at;
 
-    private LocalDateTime Deleted_at = null;
+    private LocalDateTime deletedAt = null;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "commande_uuid")
     private Set<Billet> billets = new HashSet<>();
 
-
-    public Commande(String Uuid_commande, Integer Numero_commande, Date Created_at, LocalDateTime Deleted_at) {
-        this.Uuid_commande = Uuid_commande;
-        this.Numero_commande = Numero_commande;
+    public Commande() {}
+    public Commande(Integer Numero_commande, Date Created_at, LocalDateTime deletedAt) {
         this.Created_at = Created_at;
     }
 
 
     public String getUuid_commande() {
-        return this.Uuid_commande;
-    }
-
-    public void setUuid_commande(String Uuid_commande) {
-        this.Uuid_commande = Uuid_commande;
-    }
-
-    public Integer getNumero_commande() {
-        return this.Numero_commande;
+        return this.uuid;
     }
 
     public Date getCreated_at() {
@@ -57,12 +43,48 @@ public class Commande {
     }
 
     public LocalDateTime getDeleted_at() {
-        return this.Deleted_at;
+        return this.deletedAt;
     }
 
-    public void setDeleted_at(LocalDateTime Deleted_at) {
-        this.Deleted_at = Deleted_at;
+    public void setDeleted_at(LocalDateTime deletedAt) {
+        this.deletedAt = deletedAt;
     }
     
+
+
+    /**
+     * @param uuid the uuid to set
+     */
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    /**
+     * @return LocalDateTime return the deletedAt
+     */
+    public LocalDateTime getDeletedAt() {
+        return deletedAt;
+    }
+
+    /**
+     * @param deletedAt the deletedAt to set
+     */
+    public void setDeletedAt(LocalDateTime deletedAt) {
+        this.deletedAt = deletedAt;
+    }
+
+    /**
+     * @return Set<Billet> return the billets
+     */
+    public Set<Billet> getBillets() {
+        return billets;
+    }
+
+    /**
+     * @param billets the billets to set
+     */
+    public void setBillets(Set<Billet> billets) {
+        this.billets = billets;
+    }
 
 }

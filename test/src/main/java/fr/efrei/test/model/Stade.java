@@ -2,15 +2,13 @@ package fr.efrei.test.model;
 
 import jakarta.persistence.*;
 
-import jakarta.persistence.Entity;
-
 @Entity
 public class Stade {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(nullable = false)
-    private String Uuid_stade;
+    private String uuid;
 
     @Column(nullable = false, length = 100)
     private String Nom_stade;
@@ -24,9 +22,8 @@ public class Stade {
     @Column(nullable = false)
     private boolean Est_reserve;
 
-
-    public Stade(String Uuid_stade, String Nom_stade, String Adresse_stade, Integer Capacite_stade, boolean Est_reserve) {
-        this.Uuid_stade = Uuid_stade;
+    public Stade() {}
+    public Stade(String Nom_stade, String Adresse_stade, Integer Capacite_stade, boolean Est_reserve) {
         this.Nom_stade = Nom_stade;
         this.Adresse_stade = Adresse_stade;
         this.Capacite_stade = Capacite_stade;
@@ -34,19 +31,12 @@ public class Stade {
     }
     
     /**
-     * @return String return the Uuid_stade
+     * @return String return the uuid
      */
     public String getUuid_stade() {
-        return Uuid_stade;
+        return uuid;
     }
-
-    /**
-     * @param Uuid_stade the Uuid_stade to set
-     */
-    public void setUuid_stade(String Uuid_stade) {
-        this.Uuid_stade = Uuid_stade;
-    }
-
+    
     /**
      * @return String return the Nom_stade
      */
