@@ -1,7 +1,6 @@
 package fr.efrei.test.model;
 
 import jakarta.persistence.*;
-
 import java.sql.Time;
 import java.util.*;
 
@@ -28,9 +27,11 @@ public class Epreuve {
     @Column(nullable = false)
     private boolean Est_ouverte = true;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "epreuve_uuid")
+    @OneToMany(mappedBy = "epreuve", cascade = CascadeType.ALL)
     private Set<Billet> billets = new HashSet<>();
+    
+    @ManyToMany(mappedBy = "epreuve")
+    Set<Stade> stade;
 
     public Epreuve() {}
     public Epreuve(String Libelle_epreuve, String Description_epreuve, Time Duree_epreuve, Date Date_epreuve, boolean Est_ouverte) {

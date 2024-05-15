@@ -13,8 +13,7 @@ public class Boutique {
     @Column(nullable = false, length = 100)
     private String Nom_boutique;
     
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "boutique_uuid")
+    @OneToMany(mappedBy = "boutique", cascade = CascadeType.ALL)
     private Set<Billet> billets = new HashSet<>();
 
     /**

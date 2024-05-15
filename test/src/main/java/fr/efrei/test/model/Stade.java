@@ -1,6 +1,7 @@
 package fr.efrei.test.model;
 
 import jakarta.persistence.*;
+import java.util.*;
 
 @Entity
 public class Stade {
@@ -22,7 +23,12 @@ public class Stade {
     @Column(nullable = false)
     private boolean Est_reserve;
 
-    
+    @ManyToMany
+    @JoinTable(
+    name = "heberge", 
+    joinColumns = @JoinColumn(name = "stade_uuid"), 
+    inverseJoinColumns = @JoinColumn(name = "epreuve_uuid"))
+    Set<Epreuve> epreuve;
 
     public Stade() {}
     public Stade(String Nom_stade, String Adresse_stade, Integer Capacite_stade, boolean Est_reserve) {

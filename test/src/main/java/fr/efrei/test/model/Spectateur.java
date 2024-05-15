@@ -51,9 +51,11 @@ public class Spectateur implements UserDetails{
 	@Enumerated(EnumType.STRING)
 	private Role role;
 
-	@OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "spectateur_uuid")
+	@OneToMany(mappedBy = "spectateur", cascade = CascadeType.ALL)
     private Set<Billet> billets = new HashSet<>();
+	
+	@OneToMany(mappedBy = "spectateur", cascade = CascadeType.ALL)
+    private Set<Commande> commandes = new HashSet<>();
 
     @Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

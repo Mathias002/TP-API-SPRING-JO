@@ -12,6 +12,9 @@ public class Billet {
 	@GeneratedValue(strategy = GenerationType.UUID)
 	@Column(nullable = false)
     private String uuid;
+    
+	@Column(nullable = false)
+    private String Nom;
 
     @Column(nullable = false)
     private Float Prix;
@@ -26,12 +29,25 @@ public class Billet {
     private boolean IsValid = true;
     
     @ManyToOne
-    @JoinColumn(name = "billet_uuid")
-    private Set<Boutique> boutique = new HashSet<>();
+    @JoinColumn(name = "boutique_uuid")
+    private Boutique boutique;
+
+    @ManyToOne
+    @JoinColumn(name = "commande_uuid")
+    private Commande commande;
+
+    @ManyToOne
+    @JoinColumn(name = "epreuve_uuid")
+    private Epreuve epreuve;
+
+    @ManyToOne
+    @JoinColumn(name = "spectateur_uuid")
+    private Spectateur spectateur;
 
     public Billet() {}
-    public Billet(Float Prix, Date Created_at, LocalDateTime deletedAt, boolean IsValid) {
+    public Billet(Float Prix, String Nom, Date Created_at, LocalDateTime deletedAt, boolean IsValid) {
         this.Prix = Prix;
+        this.Nom = Nom;
         this.Created_at = Created_at;
         this.deletedAt = deletedAt;
         this.IsValid = IsValid;
@@ -99,6 +115,20 @@ public class Billet {
      */
     public void setDeleted_at(LocalDateTime deletedAt) {
         this.deletedAt = deletedAt;
+    }
+
+    /**
+     * @return String return the Nom
+     */
+    public String getNom() {
+        return Nom;
+    }
+
+    /**
+     * @param Nom the Nom to set
+     */
+    public void setNom(String Nom) {
+        this.Nom = Nom;
     }
 
 }
