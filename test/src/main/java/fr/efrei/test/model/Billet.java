@@ -3,7 +3,6 @@ package fr.efrei.test.model;
 import java.time.LocalDateTime;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
-
 import java.util.*;
 
 @Entity
@@ -26,6 +25,9 @@ public class Billet {
     @Column(nullable = false)
     private boolean IsValid = true;
     
+    @ManyToOne
+    @JoinColumn(name = "billet_uuid")
+    private Set<Boutique> boutique = new HashSet<>();
 
     public Billet() {}
     public Billet(Float Prix, Date Created_at, LocalDateTime deletedAt, boolean IsValid) {

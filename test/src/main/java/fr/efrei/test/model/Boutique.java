@@ -1,7 +1,6 @@
 package fr.efrei.test.model;
 
 import jakarta.persistence.*;
-
 import java.util.*;
 
 @Entity

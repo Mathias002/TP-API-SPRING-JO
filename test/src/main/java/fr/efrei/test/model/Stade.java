@@ -22,6 +22,8 @@ public class Stade {
     @Column(nullable = false)
     private boolean Est_reserve;
 
+    
+
     public Stade() {}
     public Stade(String Nom_stade, String Adresse_stade, Integer Capacite_stade, boolean Est_reserve) {
         this.Nom_stade = Nom_stade;
