@@ -31,10 +31,9 @@ public class Commande {
     private Spectateur spectateur;
 
     public Commande() {}
-    public Commande(String Nom, Date Created_at, LocalDateTime deletedAt) {
+    public Commande(String Nom, Set<Billet> billets) {
         this.Nom = Nom;
-        this.Created_at = Created_at;
-        this.deletedAt = deletedAt;
+        this.billets = billets;
     }    
 
     /**

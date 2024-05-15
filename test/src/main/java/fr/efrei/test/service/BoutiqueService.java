@@ -33,7 +33,8 @@ public class BoutiqueService {
 		// ici je suis dans la DTO
 		//
 		Boutique boutiqueACreer = new Boutique(
-				boutique.getNom_boutique()
+				boutique.getNom_boutique(),
+				boutique.getBillets()
 		);
 		// je suis dans une entité
 		return repository.save(boutiqueACreer);

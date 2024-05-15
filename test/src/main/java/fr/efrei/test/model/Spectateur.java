@@ -68,6 +68,15 @@ public class Spectateur implements UserDetails{
 		return authorities;
 	}
 
+
+	public Spectateur( String email, String Password, String Nom, String Prenom) {
+		this.email = email;
+		this.Password = Password;
+		this.Nom = Nom;
+		this.Prenom = Prenom;
+	}
+
+
     @Override
 	public String getUsername() {
 		return email;
@@ -76,6 +85,8 @@ public class Spectateur implements UserDetails{
 	public String getPassword() {
 		return Password;
 	}
+
+	
 
 	@Override
 	public boolean isAccountNonExpired() {
@@ -104,4 +115,48 @@ public class Spectateur implements UserDetails{
 	public void setDeletedAt(LocalDateTime deletedAt) {
 		this.deletedAt = deletedAt;
 	}
+
+
+    /**
+     * @return String return the Nom
+     */
+    public String getNom() {
+        return Nom;
+    }
+
+    /**
+     * @param Nom the Nom to set
+     */
+    public void setNom(String Nom) {
+        this.Nom = Nom;
+    }
+
+    /**
+     * @return String return the Prenom
+     */
+    public String getPrenom() {
+        return Prenom;
+    }
+
+    /**
+     * @param Prenom the Prenom to set
+     */
+    public void setPrenom(String Prenom) {
+        this.Prenom = Prenom;
+    }
+
+    /**
+     * @return Float return the Solde
+     */
+    public Float getSolde() {
+        return Solde;
+    }
+
+    /**
+     * @param Solde the Solde to set
+     */
+    public void setSolde(Float Solde) {
+        this.Solde = Solde;
+    }
+
 }

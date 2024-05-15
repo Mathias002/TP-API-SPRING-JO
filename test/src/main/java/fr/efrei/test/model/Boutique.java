@@ -15,7 +15,13 @@ public class Boutique {
     
     @OneToMany(mappedBy = "boutique", cascade = CascadeType.ALL)
     private Set<Billet> billets = new HashSet<>();
+    
 
+    public Boutique() {}
+    public Boutique( String Nom_boutique, Set<Billet> billets) {
+        this.Nom_boutique = Nom_boutique;
+        this.billets = billets;
+    }
     /**
      * @return Integer return the uuid
      */
