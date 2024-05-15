@@ -7,8 +7,6 @@ import fr.efrei.test.repository.BoutiqueRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -33,8 +31,7 @@ public class BoutiqueService {
 		// ici je suis dans la DTO
 		//
 		Boutique boutiqueACreer = new Boutique(
-				boutique.getNom_boutique(),
-				boutique.getBillets()
+				boutique.getNom_boutique()
 		);
 		// je suis dans une entité
 		return repository.save(boutiqueACreer);

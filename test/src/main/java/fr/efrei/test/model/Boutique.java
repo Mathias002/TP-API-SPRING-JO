@@ -18,9 +18,8 @@ public class Boutique {
     
 
     public Boutique() {}
-    public Boutique( String Nom_boutique, Set<Billet> billets) {
+    public Boutique( String Nom_boutique) {
         this.Nom_boutique = Nom_boutique;
-        this.billets = billets;
     }
     /**
      * @return Integer return the uuid

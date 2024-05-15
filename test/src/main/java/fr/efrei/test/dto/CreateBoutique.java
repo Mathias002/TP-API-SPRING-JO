@@ -10,27 +10,26 @@ public class CreateBoutique {
     
     @NotBlank
     @Size(min = 2)
-	private String Nom_boutique;
+	private String nom_boutique;
 
     private Set<Billet> billets = new HashSet<>();
 
-    public CreateBoutique(String Nom_boutique, Set<Billet> billets) {
-        this.Nom_boutique = Nom_boutique;
-        this.billets = billets;
+    public CreateBoutique(String nom_boutique, Set<Billet> billets) {
+        this.nom_boutique = nom_boutique;
     }
 
     /**
-     * @return String return the Nom_boutique
+     * @return String return the nom_boutique
      */
     public String getNom_boutique() {
-        return Nom_boutique;
+        return nom_boutique;
     }
 
     /**
-     * @param Nom_boutique the Nom_boutique to set
+     * @param nom_boutique the nom_boutique to set
      */
-    public void setNom_boutique(String Nom_boutique) {
-        this.Nom_boutique = Nom_boutique;
+    public void setNom_boutique(String nom_boutique) {
+        this.nom_boutique = nom_boutique;
     }
 
     /**
