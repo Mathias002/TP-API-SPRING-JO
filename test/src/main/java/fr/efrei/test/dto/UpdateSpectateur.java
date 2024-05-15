@@ -1,20 +1,29 @@
 package fr.efrei.test.dto;
 
+import jakarta.validation.constraints.*;
+
 public class UpdateSpectateur {
 
+    @NotBlank
 	private String email;
+	
+    @NotBlank
+    @Size(min = 6)
+	private String password;
+	
+    @NotBlank
+	@Size(min = 1, max = 25)
+	private String nom;
 
-	private String Password;
+	@NotBlank
+    @Size(min = 1, max = 25)
+	private String prenom;
 
-	private String Nom;
-
-	private String Prenom;
-
-	public UpdateSpectateur(String email, String Password, String Nom, String Prenom) {
+	public UpdateSpectateur(String email, String password, String nom, String prenom) {
 		this.email = email;
-		this.Password = Password;
-		this.Nom = Nom;
-		this.Prenom = Prenom;
+		this.password = password;
+		this.nom = nom;
+		this.prenom = prenom;
 	}
 
     /**
@@ -28,21 +37,21 @@ public class UpdateSpectateur {
      * @return String return the Password
      */
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     /**
      * @return String return the Nom
      */
     public String getNom() {
-        return Nom;
+        return nom;
     }
 
     /**
      * @return String return the Prenom
      */
     public String getPrenom() {
-        return Prenom;
+        return prenom;
     }
 
 }

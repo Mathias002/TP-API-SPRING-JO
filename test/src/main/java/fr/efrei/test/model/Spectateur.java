@@ -116,7 +116,6 @@ public class Spectateur implements UserDetails{
 		this.deletedAt = deletedAt;
 	}
 
-
     /**
      * @return String return the Nom
      */
