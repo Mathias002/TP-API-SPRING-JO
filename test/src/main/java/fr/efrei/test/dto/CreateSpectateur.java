@@ -20,6 +20,9 @@ public class CreateSpectateur {
     @Size(min = 1, max = 25)
 	private String prenom;
 
+
+    private Float solde = 0.00f;
+
     /**
      * @return String return the email
      */
@@ -48,4 +51,7 @@ public class CreateSpectateur {
         return prenom;
     }
 
+    public Float getSolde() {
+        return solde;
+    }
 }

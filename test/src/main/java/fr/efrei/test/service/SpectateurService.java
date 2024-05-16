@@ -36,7 +36,8 @@ public class SpectateurService {
 				spectateur.getEmail(),
 				spectateur.getPassword(),
 				spectateur.getNom(),
-				spectateur.getPrenom()
+				spectateur.getPrenom(),
+				spectateur.getSolde()
 		);
 		// je suis dans une entité
 		return repository.save(spectateurACreer);
@@ -55,10 +56,11 @@ public class SpectateurService {
 
 	public boolean update(String uuid, UpdateSpectateur spectateur) {
 		Spectateur spectateurAModifier = findSpectateurById(uuid);
-
 		if(spectateurAModifier != null) {
+			spectateurAModifier.setEmail(spectateur.getEmail());
 			spectateurAModifier.setPrenom(spectateur.getPrenom());
 			spectateurAModifier.setNom(spectateur.getNom());
+			spectateurAModifier.setSolde(spectateur.getSolde());
 			repository.save(spectateurAModifier);
 			return true;
 		}
@@ -69,11 +71,11 @@ public class SpectateurService {
 		Spectateur spectateurAModifier = findSpectateurById(uuid);
 
 		if(spectateurAModifier != null) {
-			if(!spectateur.getPrenom().isEmpty()) {
+			if(!spectateur.getEmail().isEmpty()) {
+				spectateurAModifier.setEmail(spectateur.getEmail());
 				spectateurAModifier.setPrenom(spectateur.getPrenom());
-			}
-			if(!spectateur.getNom().isEmpty()) {
 				spectateurAModifier.setNom(spectateur.getNom());
+				spectateurAModifier.setSolde(spectateur.getSolde());
 			}
 			repository.save(spectateurAModifier);
 			return true;

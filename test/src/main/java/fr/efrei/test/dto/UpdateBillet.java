@@ -1,74 +1,37 @@
-package fr.efrei.test.model;
+package fr.efrei.test.dto;
+import fr.efrei.test.model.Boutique;
+import fr.efrei.test.model.Commande;
+import fr.efrei.test.model.Epreuve;
+import fr.efrei.test.model.Spectateur;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
-import java.time.LocalDateTime;
-import jakarta.persistence.*;
-import org.hibernate.annotations.CreationTimestamp;
-import java.util.*;
-
-@Entity
-public class Billet {
- 
-    @Id
-	@GeneratedValue(strategy = GenerationType.UUID)
-	@Column(nullable = false)
+public class UpdateBillet {
+    
+    @NotBlank
     private String uuid;
     
-	@Column(nullable = false)
+    @NotBlank(message = "Veuillez saisir un nom")
+    @Size(min = 2, message = "Le nom doit contenir minimun 2 caractères")
     private String nom;
 
-    @Column(nullable = false)
+    @NotBlank(message = "Veuillez saisir un prix")
     private Float prix;
-
-    @CreationTimestamp
-	@Column(updatable = false)
-	private Date createdAt;
-
-    private LocalDateTime deletedAt = null;
    
-    @Column(nullable = false)
     private boolean isValid = false;
     
-    @ManyToOne
-    @JoinColumn(name = "boutique_uuid")
+    @NotBlank(message = "Veuillez saisir une boutique")
     private Boutique boutique;
 
-    @ManyToOne
-    @JoinColumn(name = "commande_uuid")
+    @NotBlank(message = "Veuillez saisir une commande")
     private Commande commande;
 
-    @ManyToOne
-    @JoinColumn(name = "epreuve_uuid")
+    @NotBlank(message = "Veuillez saisir une epreuve")
     private Epreuve epreuve;
 
-    @ManyToOne
-    @JoinColumn(name = "spectateur_uuid")
+    @NotBlank(message = "Veuillez saisir un spectateur")
     private Spectateur spectateur;
 
-    // completer le constructeur
-    public Billet() {}
-    public Billet(String nom, Float prix, Boutique boutique, Commande commande, Epreuve epreuve, Spectateur spectateur ) {
-        this.nom = nom;
-        this.prix = prix;
-        this.boutique = boutique;
-        this.commande = commande;
-        this.epreuve = epreuve;
-        this.spectateur = spectateur;
-    }    
-
-
-    /**
-     * @return String return the uuid
-     */
-    public String getUuid() {
-        return uuid;
-    }
-
-    /**
-     * @param uuid the uuid to set
-     */
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
-    }
 
     /**
      * @return String return the nom
@@ -96,34 +59,6 @@ public class Billet {
      */
     public void setPrix(Float prix) {
         this.prix = prix;
-    }
-
-    /**
-     * @return Date return the createdAt
-     */
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    /**
-     * @param createdAt the createdAt to set
-     */
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    /**
-     * @return LocalDateTime return the deletedAt
-     */
-    public LocalDateTime getDeletedAt() {
-        return deletedAt;
-    }
-
-    /**
-     * @param deletedAt the deletedAt to set
-     */
-    public void setDeletedAt(LocalDateTime deletedAt) {
-        this.deletedAt = deletedAt;
     }
 
     /**

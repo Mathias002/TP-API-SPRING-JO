@@ -13,7 +13,6 @@ public class Boutique {
     @Column(nullable = false, length = 100)
     private String nomBoutique;
     
-    
     public Boutique() {}
     public Boutique( String nomBoutique) {
         this.nomBoutique = nomBoutique;

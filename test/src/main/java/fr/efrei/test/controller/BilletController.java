@@ -1,9 +1,9 @@
 package fr.efrei.test.controller;
 
-import fr.efrei.test.dto.CreateEpreuve;
-import fr.efrei.test.dto.UpdateEpreuve;
-import fr.efrei.test.model.Epreuve;
-import fr.efrei.test.service.EpreuveService;
+import fr.efrei.test.dto.CreateBillet;
+import fr.efrei.test.dto.UpdateBillet;
+import fr.efrei.test.service.BilletService;
+import fr.efrei.test.model.Billet;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,37 +14,39 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/epreuves")
-@EnableMethodSecurity
-public class EpreuveController {
 
-	private final EpreuveService service;
+@RestController
+@RequestMapping("/billets")
+@EnableMethodSecurity
+public class BilletController {
+
+	private final BilletService service;
 
 	@Autowired
-	public EpreuveController(EpreuveService service) {
+	public BilletController(BilletService service) {
 		this.service = service;
 	}
 
 	@GetMapping
-	public ResponseEntity<List<Epreuve>> findAll() {
-		return new ResponseEntity<>(service.findAllEpreuves(), HttpStatus.OK);
+	public ResponseEntity<List<Billet>> findAll() {
+		return new ResponseEntity<>(service.findAllBillets(), HttpStatus.OK);
 	}
 
 	@GetMapping("/{uuid}")
-	public ResponseEntity<Epreuve> findOneById(@PathVariable String uuid) {
-		Epreuve epreuve = service.findEpreuveById(uuid);
-		if(epreuve != null) {
-			return new ResponseEntity<>(service.findEpreuveById(uuid), HttpStatus.OK);
+	public ResponseEntity<Billet> findOneById(@PathVariable String uuid) {
+		Billet billet = service.findBilletById(uuid);
+		if(billet != null) {
+			return new ResponseEntity<>(service.findBilletById(uuid), HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
 	// @PreAuthorize("hasAuthority('ADMIN')")
 	@PostMapping
-	public ResponseEntity<Epreuve> save(@Valid @RequestBody CreateEpreuve epreuve) {
-		Epreuve createdEpreuve = service.create(epreuve);
-		return new ResponseEntity<>(createdEpreuve, HttpStatus.CREATED);
+	public ResponseEntity<Billet> save(@Valid @RequestBody CreateBillet billet) {
+		Billet createdBillet = service.create(billet);
+		System.out.println("test");
+		return new ResponseEntity<>(createdBillet, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/{uuid}")
@@ -59,8 +61,8 @@ public class EpreuveController {
 	@PutMapping("/{uuid}")
 	public ResponseEntity<?> mettreAJourTotalement(
 			@PathVariable String uuid,
-			@Valid @RequestBody UpdateEpreuve epreuve) {
-		boolean isUpdated = service.update(uuid, epreuve);
+			@Valid @RequestBody UpdateBillet billet) {
+		boolean isUpdated = service.update(uuid, billet);
 		if(isUpdated) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
@@ -70,13 +72,11 @@ public class EpreuveController {
 	@PatchMapping("/{uuid}")
 	public ResponseEntity<?> mettreAjourPartiellement(
 			@PathVariable String uuid,
-			@Valid @RequestBody UpdateEpreuve epreuve) {
-		boolean isUpdated = service.updatePartielle(uuid, epreuve);
+			@Valid @RequestBody UpdateBillet billet) {
+		boolean isUpdated = service.updatePartielle(uuid, billet);
 		if(isUpdated) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
-
-	//@PatchMapping("{uuid}/stades")
 }

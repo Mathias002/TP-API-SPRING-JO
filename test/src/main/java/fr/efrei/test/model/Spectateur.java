@@ -36,8 +36,8 @@ public class Spectateur implements UserDetails{
     @Column(nullable = false, length = 50)
     private String prenom;
 
-    @Column(nullable = true)
-    private Float solde;
+    @Column(nullable = false)
+    private Float solde = 0.00f;
 
     @CreationTimestamp
 	@Column(updatable = false)
@@ -65,11 +65,12 @@ public class Spectateur implements UserDetails{
 		return authorities;
 	}
 
-	public Spectateur( String email, String password, String nom, String prenom) {
+	public Spectateur( String email, String password, String nom, String prenom, Float solde) {
 		this.email = email;
 		this.password = password;
 		this.nom = nom;
 		this.prenom = prenom;
+        this.solde = solde;
 	}
 
     @Override

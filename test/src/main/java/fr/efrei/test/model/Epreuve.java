@@ -1,7 +1,6 @@
 package fr.efrei.test.model;
 
 import jakarta.persistence.*;
-import java.sql.Time;
 import java.util.*;
 
 @Entity
@@ -25,7 +24,7 @@ public class Epreuve {
     private boolean estOuverte = false;
     
     @ManyToMany(mappedBy = "epreuve")
-    Set<Stade> stade;
+    Set<Stade> stade = new HashSet<>();
 
     public Epreuve() {}
     public Epreuve(String libelleEpreuve, String descriptionEpreuve, Date dateEpreuve) {
@@ -102,6 +101,16 @@ public class Epreuve {
      */
     public void setEstOuverte(boolean estOuverte) {
         this.estOuverte = estOuverte;
+    }
+
+    public void setStade(Set<Stade> stade) {
+        this.stade = stade;
+    }
+
+    public Set<Stade> getStade() {
+        return stade;
+        // idEpreuve : blabla 
+        // idStade : toto
     }
 
 }
