@@ -41,7 +41,7 @@ public class SpectateurController {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
-	@PreAuthorize("hasAuthority('ADMIN')")
+	// @PreAuthorize("hasAuthority('ADMIN')")
 	@PostMapping
 	public ResponseEntity<Spectateur> save(@Valid @RequestBody CreateSpectateur spectateur) {
 		Spectateur createdSpectateur = service.create(spectateur);

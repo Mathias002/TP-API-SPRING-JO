@@ -41,7 +41,7 @@ public class BoutiqueService {
 	public boolean delete(String uuid) {
 		Boutique boutiqueASupprimer = findBoutiqueById(uuid);
 		if(boutiqueASupprimer != null ){
-			repository.save(boutiqueASupprimer);
+			repository.delete(boutiqueASupprimer);
 			return true;
 		}
 		return false;

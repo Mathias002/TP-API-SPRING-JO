@@ -18,5 +18,5 @@ public interface BoutiqueRepository extends JpaRepository<Boutique, String> {
 
 	Boutique save(Boutique boutique);
 
-	void deleteByUuid(String uuid);
+	void delete(Boutique boutique);
 }

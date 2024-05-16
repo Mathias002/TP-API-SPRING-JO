@@ -1,9 +1,9 @@
 package fr.efrei.test.controller;
 
-import fr.efrei.test.dto.CreateBoutique;
-import fr.efrei.test.dto.UpdateBoutique;
-import fr.efrei.test.service.BoutiqueService;
-import fr.efrei.test.model.Boutique;
+import fr.efrei.test.dto.CreateStade;
+import fr.efrei.test.dto.UpdateStade;
+import fr.efrei.test.model.Stade;
+import fr.efrei.test.service.StadeService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,38 +14,37 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
-@RequestMapping("/boutiques")
+@RequestMapping("/stades")
 @EnableMethodSecurity
-public class BoutiqueController {
+public class StadeController {
 
-	private final BoutiqueService service;
+	private final StadeService service;
 
 	@Autowired
-	public BoutiqueController(BoutiqueService service) {
+	public StadeController(StadeService service) {
 		this.service = service;
 	}
 
 	@GetMapping
-	public ResponseEntity<List<Boutique>> findAll() {
-		return new ResponseEntity<>(service.findAllBoutiques(), HttpStatus.OK);
+	public ResponseEntity<List<Stade>> findAll() {
+		return new ResponseEntity<>(service.findAllStades(), HttpStatus.OK);
 	}
 
 	@GetMapping("/{uuid}")
-	public ResponseEntity<Boutique> findOneById(@PathVariable String uuid) {
-		Boutique boutique = service.findBoutiqueById(uuid);
-		if(boutique != null) {
-			return new ResponseEntity<>(service.findBoutiqueById(uuid), HttpStatus.OK);
+	public ResponseEntity<Stade> findOneById(@PathVariable String uuid) {
+		Stade stade = service.findStadeById(uuid);
+		if(stade != null) {
+			return new ResponseEntity<>(service.findStadeById(uuid), HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
 	// @PreAuthorize("hasAuthority('ADMIN')")
 	@PostMapping
-	public ResponseEntity<Boutique> save(@Valid @RequestBody CreateBoutique boutique) {
-		Boutique createdBoutique = service.create(boutique);
-		return new ResponseEntity<>(createdBoutique, HttpStatus.CREATED);
+	public ResponseEntity<Stade> save(@Valid @RequestBody CreateStade stade) {
+		Stade createdStade = service.create(stade);
+		return new ResponseEntity<>(createdStade, HttpStatus.CREATED);
 	}
 
 	@DeleteMapping("/{uuid}")
@@ -60,8 +59,8 @@ public class BoutiqueController {
 	@PutMapping("/{uuid}")
 	public ResponseEntity<?> mettreAJourTotalement(
 			@PathVariable String uuid,
-			@RequestBody UpdateBoutique boutique) {
-		boolean isUpdated = service.update(uuid, boutique);
+			@RequestBody UpdateStade stade) {
+		boolean isUpdated = service.update(uuid, stade);
 		if(isUpdated) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
@@ -71,8 +70,8 @@ public class BoutiqueController {
 	@PatchMapping("/{uuid}")
 	public ResponseEntity<?> mettreAjourPartiellement(
 			@PathVariable String uuid,
-			@RequestBody UpdateBoutique boutique) {
-		boolean isUpdated = service.updatePartielle(uuid, boutique);
+			@RequestBody UpdateStade stade) {
+		boolean isUpdated = service.updatePartielle(uuid, stade);
 		if(isUpdated) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}

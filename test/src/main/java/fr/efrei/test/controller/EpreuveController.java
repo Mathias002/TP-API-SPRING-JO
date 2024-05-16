@@ -40,7 +40,7 @@ public class EpreuveController {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
-	@PreAuthorize("hasAuthority('ADMIN')")
+	// @PreAuthorize("hasAuthority('ADMIN')")
 	@PostMapping
 	public ResponseEntity<Epreuve> save(@Valid @RequestBody CreateEpreuve epreuve) {
 		Epreuve createdEpreuve = service.create(epreuve);
