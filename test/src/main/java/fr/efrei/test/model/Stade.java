@@ -21,7 +21,7 @@ public class Stade {
     private Integer Capacite_stade;
 
     @Column(nullable = false)
-    private boolean Est_reserve;
+    private boolean Est_reserve = false;
 
     @ManyToMany
     @JoinTable(
@@ -31,11 +31,10 @@ public class Stade {
     Set<Epreuve> epreuve;
 
     public Stade() {}
-    public Stade(String Nom_stade, String Adresse_stade, Integer Capacite_stade, boolean Est_reserve) {
+    public Stade(String Nom_stade, String Adresse_stade, Integer Capacite_stade) {
         this.Nom_stade = Nom_stade;
         this.Adresse_stade = Adresse_stade;
         this.Capacite_stade = Capacite_stade;
-        this.Est_reserve = Est_reserve;
     }
     
     /**

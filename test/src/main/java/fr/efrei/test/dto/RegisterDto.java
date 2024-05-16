@@ -1,15 +1,24 @@
 package fr.efrei.test.dto;
 
 import fr.efrei.test.validator.StrongPassword;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 public class RegisterDto {
+
+
 	private String email;
 
+	@NotBlank(message= "Veuillez saisir un mot de passe")
 	@StrongPassword
 	private String password;
 
+	@NotBlank(message= "Veuillez saisir un nom")
+	@Size(min = 2, message = "La nom doit contenir minimun 2 caractères")
 	private String Nom;
 	
+	@NotBlank(message= "Veuillez saisir un prénom")
+    @Size(min = 2, message = "La prénom doit contenir minimun 2 caractères")
 	private String Prenom;
 
 	public String getEmail() {

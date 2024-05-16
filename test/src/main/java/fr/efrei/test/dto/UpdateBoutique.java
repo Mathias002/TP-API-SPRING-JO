@@ -1,20 +1,19 @@
 package fr.efrei.test.dto;
 
-import java.util.HashSet;
 import java.util.*;
 import fr.efrei.test.model.Billet;
 import jakarta.validation.constraints.*;
 
 public class UpdateBoutique {
     
-    @NotBlank
-    @Size(min = 2)
-	private String Nom_boutique;
+    @NotBlank(message= "Veuillez choisir le nom de la boutique")
+    @Size(min = 2, message = "La nom doit contenir minimun 2 caractères")
+	private String nom_boutique;
 
     private Set<Billet> billets = new HashSet<>();
 
     public UpdateBoutique(String Nom_boutique, Set<Billet> billets) {
-        this.Nom_boutique = Nom_boutique;
+        this.nom_boutique = Nom_boutique;
         this.billets = billets;
     }
 
@@ -22,14 +21,14 @@ public class UpdateBoutique {
      * @return String return the Nom_boutique
      */
     public String getNom_boutique() {
-        return Nom_boutique;
+        return nom_boutique;
     }
 
     /**
      * @param Nom_boutique the Nom_boutique to set
      */
     public void setNom_boutique(String Nom_boutique) {
-        this.Nom_boutique = Nom_boutique;
+        this.nom_boutique = Nom_boutique;
     }
 
     /**

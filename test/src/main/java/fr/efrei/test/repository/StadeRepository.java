@@ -17,5 +17,5 @@ public interface StadeRepository extends JpaRepository<Stade, String> {
 
 	Stade save(Stade stade);
 
-	void deleteByUuid(String uuid);
+	void delete(Stade stade);
 }

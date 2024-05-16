@@ -44,6 +44,7 @@ public class Billet {
     @JoinColumn(name = "spectateur_uuid")
     private Spectateur spectateur;
 
+    // completer le constructeur
     public Billet() {}
     public Billet(Float Prix, String Nom, Date Created_at, LocalDateTime deletedAt, boolean IsValid) {
         this.Prix = Prix;

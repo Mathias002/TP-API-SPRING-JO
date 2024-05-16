@@ -34,8 +34,7 @@ public class EpreuveService {
 				epreuve.getLibelle_epreuve(),
 				epreuve.getDescription_epreuve(),
 				epreuve.getDuree_epreuve(),
-				epreuve.getDate_epreuve(),
-				epreuve.isEst_ouverte()
+				epreuve.getDate_epreuve()
 		);
 		// je suis dans une entité
 		return repository.save(epreuveACreer);

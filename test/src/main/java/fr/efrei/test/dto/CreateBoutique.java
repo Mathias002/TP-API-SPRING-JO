@@ -1,6 +1,5 @@
 package fr.efrei.test.dto;
 
-import java.util.HashSet;
 import java.util.*;
 
 import fr.efrei.test.model.Billet;
@@ -8,8 +7,8 @@ import jakarta.validation.constraints.*;
 
 public class CreateBoutique {
     
-    @NotBlank
-    @Size(min = 2)
+    @NotBlank(message= "Veuillez choisir le nom de la boutique")
+    @Size(min = 2, message = "La nom doit contenir minimun 2 caractères")
 	private String nom_boutique;
 
     private Set<Billet> billets = new HashSet<>();

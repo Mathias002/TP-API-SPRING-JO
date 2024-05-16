@@ -2,18 +2,25 @@ package fr.efrei.test.dto;
 
 import java.util.*;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 public class UpdateStade {
 
     private String uuid;
 
+    @NotBlank(message= "Veuillez renseigner le nom du stade")
     private String Nom_stade;
 
+    @NotBlank(message= "Veuillez renseigner l'adresse du stade")
     private String Adresse_stade;
 
+    @NotNull(message = "La capacité du stade ne peut pas être nulle")
+    @Min(value = 10000, message = "La capacité du stade doit être au moins de 10000")
     private Integer Capacite_stade;
 
     private boolean Est_reserve;
-
 
     public UpdateStade(String Nom_stade, String Adresse_stade, Integer Capacite_stade, boolean Est_reserve) {
         this.Nom_stade = Nom_stade;

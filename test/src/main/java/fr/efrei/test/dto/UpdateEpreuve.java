@@ -7,20 +7,20 @@ import java.util.*;
 
 public class UpdateEpreuve {
     
-    @NotBlank
+    @NotBlank(message= "Veuillez choisir un libelle")
     private String Libelle_epreuve;
 
-    @NotBlank
+    @NotBlank(message= "Veuillez choisir une description")
     private String Description_epreuve;
 
-    @NotBlank
+    @NotBlank(message= "Veuillez choisir la durée de l'épreuve")
     private Time Duree_epreuve;
 
-    @NotBlank
-    private Date Date_epreuve;
+    @NotBlank(message= "Veuillez choisir la date de l'épreuve")
+    private Date Date_epreuve;  
     
     @NotBlank
-    private boolean Est_ouverte = true;
+    private boolean Est_ouverte;
 
     public UpdateEpreuve(String Libelle_epreuve, String Description_epreuve, Time Duree_epreuve, Date Date_epreuve, boolean Est_ouverte) {
         this.Libelle_epreuve = Libelle_epreuve;

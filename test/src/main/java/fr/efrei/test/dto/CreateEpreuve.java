@@ -7,27 +7,26 @@ import java.util.*;
 
 public class CreateEpreuve {
     
-    @NotBlank
+    @NotBlank(message= "Veuillez choisir un libelle")
     private String Libelle_epreuve;
 
-    @NotBlank
+    @NotBlank(message= "Veuillez choisir une description")
     private String Description_epreuve;
 
-    @NotBlank
+    @NotBlank(message= "Veuillez choisir la durée de l'épreuve")
     private Time Duree_epreuve;
 
-    @NotBlank
+    @NotBlank(message= "Veuillez choisir la date de l'épreuve")
     private Date Date_epreuve;  
     
     @NotBlank
-    private boolean Est_ouverte = true;
+    private boolean Est_ouverte = false;
 
-    public CreateEpreuve(String Libelle_epreuve, String Description_epreuve, Time Duree_epreuve, Date Date_epreuve, boolean Est_ouverte) {
+    public CreateEpreuve(String Libelle_epreuve, String Description_epreuve, Time Duree_epreuve, Date Date_epreuve) {
         this.Libelle_epreuve = Libelle_epreuve;
         this.Description_epreuve = Description_epreuve;
         this.Duree_epreuve = Duree_epreuve;
         this.Date_epreuve = Date_epreuve;
-        this.Est_ouverte = Est_ouverte;
     }
     
 
@@ -85,20 +84,6 @@ public class CreateEpreuve {
      */
     public void setDate_epreuve(Date Date_epreuve) {
         this.Date_epreuve = Date_epreuve;
-    }
-
-    /**
-     * @return boolean return the Est_ouverte
-     */
-    public boolean isEst_ouverte() {
-        return Est_ouverte;
-    }
-
-    /**
-     * @param Est_ouverte the Est_ouverte to set
-     */
-    public void setEst_ouverte(boolean Est_ouverte) {
-        this.Est_ouverte = Est_ouverte;
     }
 
 }

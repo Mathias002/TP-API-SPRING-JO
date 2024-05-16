@@ -4,18 +4,18 @@ import jakarta.validation.constraints.*;
 
 public class UpdateSpectateur {
 
-    @NotBlank
+    @NotBlank(message= "Veuillez saisir un mot de passe")
 	private String email;
 	
-    @NotBlank
+    @NotBlank(message= "Veuillez saisir un mot de passe")
     @Size(min = 6)
 	private String password;
 	
-    @NotBlank
+    @NotBlank(message= "Veuillez choisir un nom")
 	@Size(min = 1, max = 25)
 	private String nom;
 
-	@NotBlank
+	@NotBlank(message= "Veuillez choisir un prénom")
     @Size(min = 1, max = 25)
 	private String prenom;
 

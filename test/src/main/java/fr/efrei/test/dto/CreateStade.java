@@ -2,24 +2,31 @@ package fr.efrei.test.dto;
 
 import java.util.*;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 public class CreateStade {
 
     private String uuid;
 
+    @NotBlank(message= "Veuillez renseigner le nom du stade")
     private String Nom_stade;
 
+    @NotBlank(message= "Veuillez renseigner l'adresse du stade")
     private String Adresse_stade;
 
+    @NotNull(message = "La capacité du stade ne peut pas être nulle")
+    @Min(value = 10000, message = "La capacité du stade doit être au moins de 10000")
     private Integer Capacite_stade;
 
-    private boolean Est_reserve;
+    
 
 
-    public CreateStade(String Nom_stade, String Adresse_stade, Integer Capacite_stade, boolean Est_reserve) {
+    public CreateStade(String Nom_stade, String Adresse_stade, Integer Capacite_stade) {
         this.Nom_stade = Nom_stade;
         this.Adresse_stade = Adresse_stade;
         this.Capacite_stade = Capacite_stade;
-        this.Est_reserve = Est_reserve;
     }
     
     /**
@@ -69,20 +76,6 @@ public class CreateStade {
      */
     public void setCapacite_stade(Integer Capacite_stade) {
         this.Capacite_stade = Capacite_stade;
-    }
-
-    /**
-     * @return String return the Est_reserve
-     */
-    public boolean getEst_reserve() {
-        return Est_reserve;
-    }
-
-    /**
-     * @param Est_reserve the Est_reserve to set
-     */
-    public void setEst_reserve(boolean Est_reserve) {
-        this.Est_reserve = Est_reserve;
     }
 
 }

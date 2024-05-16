@@ -5,26 +5,26 @@ import jakarta.validation.constraints.*;
 
 public class CreateSpectateur {
 
-	@NotBlank
+	@NotBlank(message= "Veuillez saisir un mot de passe")
 	private String email;
 	
-    @NotBlank
+    @NotBlank(message= "Veuillez saisir un mot de passe")
     @Size(min = 6)
-	private String Password;
+	private String password;
 	
-    @NotBlank
+    @NotBlank(message= "Veuillez choisir un nom")
 	@Size(min = 1, max = 25)
-	private String Nom;
+	private String nom;
 
-	@NotBlank
+	@NotBlank(message= "Veuillez choisir un prénom")
     @Size(min = 1, max = 25)
-	private String Prenom;
+	private String prenom;
 
 	public CreateSpectateur(String email, String Password, String Nom, String Prenom) {
 		this.email = email;
-		this.Password = Password;
-		this.Nom = Nom;
-		this.Prenom = Prenom;
+		this.password = Password;
+		this.nom = Nom;
+		this.prenom = Prenom;
 	}
 
     /**
@@ -38,21 +38,21 @@ public class CreateSpectateur {
      * @return String return the Password
      */
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     /**
      * @return String return the Nom
      */
     public String getNom() {
-        return Nom;
+        return nom;
     }
 
     /**
      * @return String return the Prenom
      */
     public String getPrenom() {
-        return Prenom;
+        return prenom;
     }
 
 }

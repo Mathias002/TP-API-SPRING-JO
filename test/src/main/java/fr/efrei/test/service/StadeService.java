@@ -33,8 +33,7 @@ public class StadeService {
 		Stade stadeACreer = new Stade(
 				stade.getNom_stade(),
 				stade.getAdresse_stade(),
-				stade.getCapacite_stade(),
-				stade.getEst_reserve()
+				stade.getCapacite_stade()
 		);
 		// je suis dans une entité
 		return repository.save(stadeACreer);

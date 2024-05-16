@@ -7,8 +7,8 @@ import jakarta.validation.constraints.*;
 
 public class CreateCommande {
 
-    @NotBlank
-    @Size(min = 2)
+    @NotBlank(message= "Veuillez choisir le nom de la boutique")
+    @Size(min = 2, message = "La nom doit contenir minimun 2 caractères")
 	private String Nom;
 
     private Set<Billet> billets = new HashSet<>();

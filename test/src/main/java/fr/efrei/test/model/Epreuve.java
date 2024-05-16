@@ -25,7 +25,7 @@ public class Epreuve {
     private Date Date_epreuve;
     
     @Column(nullable = false)
-    private boolean Est_ouverte = true;
+    private boolean Est_ouverte = false;
 
     @OneToMany(mappedBy = "epreuve", cascade = CascadeType.ALL)
     private Set<Billet> billets = new HashSet<>();
@@ -34,12 +34,11 @@ public class Epreuve {
     Set<Stade> stade;
 
     public Epreuve() {}
-    public Epreuve(String Libelle_epreuve, String Description_epreuve, Time Duree_epreuve, Date Date_epreuve, boolean Est_ouverte) {
+    public Epreuve(String Libelle_epreuve, String Description_epreuve, Time Duree_epreuve, Date Date_epreuve) {
         this.Libelle_epreuve = Libelle_epreuve;
         this.Description_epreuve = Description_epreuve;
         this.Duree_epreuve = Duree_epreuve;
         this.Date_epreuve = Date_epreuve;
-        this.Est_ouverte = Est_ouverte;
     }
     
 
