@@ -8,97 +8,96 @@ import java.util.*;
 public class UpdateEpreuve {
     
     @NotBlank(message= "Veuillez choisir un libelle")
-    private String Libelle_epreuve;
+    private String libelleEpreuve;
 
     @NotBlank(message= "Veuillez choisir une description")
-    private String Description_epreuve;
+    private String descriptionEpreuve;
 
     @NotBlank(message= "Veuillez choisir la durée de l'épreuve")
-    private Time Duree_epreuve;
+    private Time dureeEpreuve;
 
     @NotBlank(message= "Veuillez choisir la date de l'épreuve")
-    private Date Date_epreuve;  
+    private Date dateEpreuve;  
     
     @NotBlank
-    private boolean Est_ouverte;
+    private boolean estOuverte;
 
-    public UpdateEpreuve(String Libelle_epreuve, String Description_epreuve, Time Duree_epreuve, Date Date_epreuve, boolean Est_ouverte) {
-        this.Libelle_epreuve = Libelle_epreuve;
-        this.Description_epreuve = Description_epreuve;
-        this.Duree_epreuve = Duree_epreuve;
-        this.Date_epreuve = Date_epreuve;
-        this.Est_ouverte = Est_ouverte;
+    public UpdateEpreuve(String libelleEpreuve, String descriptionEpreuve, Time dureeEpreuve, Date dateEpreuve, boolean estOuverte) {
+        this.libelleEpreuve = libelleEpreuve;
+        this.descriptionEpreuve = descriptionEpreuve;
+        this.dureeEpreuve = dureeEpreuve;
+        this.dateEpreuve = dateEpreuve;
+        this.estOuverte = estOuverte;
     }
     
-
     /**
-     * @return String return the Libelle_epreuve
+     * @return String return the libelleEpreuve
      */
-    public String getLibelle_epreuve() {
-        return Libelle_epreuve;
+    public String getLibelleEpreuve() {
+        return libelleEpreuve;
     }
 
     /**
-     * @param Libelle_epreuve the Libelle_epreuve to set
+     * @param libelleEpreuve the libelleEpreuve to set
      */
-    public void setLibelle_epreuve(String Libelle_epreuve) {
-        this.Libelle_epreuve = Libelle_epreuve;
+    public void setLibelleEpreuve(String libelleEpreuve) {
+        this.libelleEpreuve = libelleEpreuve;
     }
 
     /**
-     * @return String return the Description_epreuve
+     * @return String return the descriptionEpreuve
      */
-    public String getDescription_epreuve() {
-        return Description_epreuve;
+    public String getDescriptionEpreuve() {
+        return descriptionEpreuve;
     }
 
     /**
-     * @param Description_epreuve the Description_epreuve to set
+     * @param descriptionEpreuve the descriptionEpreuve to set
      */
-    public void setDescription_epreuve(String Description_epreuve) {
-        this.Description_epreuve = Description_epreuve;
+    public void setDescriptionEpreuve(String descriptionEpreuve) {
+        this.descriptionEpreuve = descriptionEpreuve;
     }
 
     /**
-     * @return Time return the Duree_epreuve
+     * @return Time return the dureeEpreuve
      */
-    public Time getDuree_epreuve() {
-        return Duree_epreuve;
+    public Time getDureeEpreuve() {
+        return dureeEpreuve;
     }
 
     /**
-     * @param Duree_epreuve the Duree_epreuve to set
+     * @param dureeEpreuve the dureeEpreuve to set
      */
-    public void setDuree_epreuve(Time Duree_epreuve) {
-        this.Duree_epreuve = Duree_epreuve;
+    public void setDureeEpreuve(Time dureeEpreuve) {
+        this.dureeEpreuve = dureeEpreuve;
     }
 
     /**
-     * @return Date return the Date_epreuve
+     * @return Date return the dateEpreuve
      */
-    public Date getDate_epreuve() {
-        return Date_epreuve;
+    public Date getDateEpreuve() {
+        return dateEpreuve;
     }
 
     /**
-     * @param Date_epreuve the Date_epreuve to set
+     * @param dateEpreuve the dateEpreuve to set
      */
-    public void setDate_epreuve(Date Date_epreuve) {
-        this.Date_epreuve = Date_epreuve;
+    public void setDateEpreuve(Date dateEpreuve) {
+        this.dateEpreuve = dateEpreuve;
     }
 
     /**
-     * @return boolean return the Est_ouverte
+     * @return boolean return the estOuverte
      */
-    public boolean isEst_ouverte() {
-        return Est_ouverte;
+    public boolean isEstOuverte() {
+        return estOuverte;
     }
 
     /**
-     * @param Est_ouverte the Est_ouverte to set
+     * @param estOuverte the estOuverte to set
      */
-    public void setEst_ouverte(boolean Est_ouverte) {
-        this.Est_ouverte = Est_ouverte;
+    public void setEstOuverte(boolean estOuverte) {
+        this.estOuverte = estOuverte;
     }
 
 }

@@ -9,26 +9,27 @@ public class CreateBoutique {
     
     @NotBlank(message= "Veuillez choisir le nom de la boutique")
     @Size(min = 2, message = "La nom doit contenir minimun 2 caractères")
-	private String nom_boutique;
+	private String nomBoutique;
 
     private Set<Billet> billets = new HashSet<>();
 
-    public CreateBoutique(String nom_boutique, Set<Billet> billets) {
-        this.nom_boutique = nom_boutique;
+    public CreateBoutique(String nomBoutique, Set<Billet> billets) {
+        this.nomBoutique = nomBoutique;
+    }
+
+
+    /**
+     * @return String return the nomBoutique
+     */
+    public String getNomBoutique() {
+        return nomBoutique;
     }
 
     /**
-     * @return String return the nom_boutique
+     * @param nomBoutique the nomBoutique to set
      */
-    public String getNom_boutique() {
-        return nom_boutique;
-    }
-
-    /**
-     * @param nom_boutique the nom_boutique to set
-     */
-    public void setNom_boutique(String nom_boutique) {
-        this.nom_boutique = nom_boutique;
+    public void setNomBoutique(String nomBoutique) {
+        this.nomBoutique = nomBoutique;
     }
 
     /**

@@ -1,6 +1,7 @@
 package fr.efrei.test.model;
 
 import jakarta.persistence.*;
+
 import java.util.*;
 
 @Entity
@@ -8,38 +9,46 @@ public class Boutique {
 
     @Id
 	@GeneratedValue(strategy = GenerationType.UUID)
+    @Column(nullable = false)
     private String uuid;
     
     @Column(nullable = false, length = 100)
-    private String Nom_boutique;
+    private String nomBoutique;
     
     @OneToMany(mappedBy = "boutique", cascade = CascadeType.ALL)
     private Set<Billet> billets = new HashSet<>();
     
-
     public Boutique() {}
-    public Boutique( String Nom_boutique) {
-        this.Nom_boutique = Nom_boutique;
+    public Boutique( String nomBoutique) {
+        this.nomBoutique = nomBoutique;
     }
+
     /**
-     * @return Integer return the uuid
+     * @return String return the uuid
      */
-    public String getId_boutique() {
+    public String getUuid() {
         return uuid;
     }
 
     /**
-     * @return String return the Nom_boutique
+     * @param uuid the uuid to set
      */
-    public String getNom_boutique() {
-        return Nom_boutique;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     /**
-     * @param Nom_boutique the Nom_boutique to set
+     * @return String return the nomBoutique
      */
-    public void setNom_boutique(String Nom_boutique) {
-        this.Nom_boutique = Nom_boutique;
+    public String getNomBoutique() {
+        return nomBoutique;
+    }
+
+    /**
+     * @param nomBoutique the nomBoutique to set
+     */
+    public void setNomBoutique(String nomBoutique) {
+        this.nomBoutique = nomBoutique;
     }
 
     /**

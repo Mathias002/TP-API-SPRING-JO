@@ -13,19 +13,19 @@ public class Epreuve {
     private String uuid;  
     
     @Column(nullable = false, length = 100)
-    private String Libelle_epreuve;
+    private String libelleEpreuve;
 
     @Column(nullable = true, length = 500)
-    private String Description_epreuve;
+    private String descriptionEpreuve;
 
     @Column(nullable = false)
-    private Time Duree_epreuve;
+    private Time dureeEpreuve;
 
     @Column(nullable = false)
-    private Date Date_epreuve;
+    private Date dateEpreuve;
     
     @Column(nullable = false)
-    private boolean Est_ouverte = false;
+    private boolean estOuverte = false;
 
     @OneToMany(mappedBy = "epreuve", cascade = CascadeType.ALL)
     private Set<Billet> billets = new HashSet<>();
@@ -34,89 +34,95 @@ public class Epreuve {
     Set<Stade> stade;
 
     public Epreuve() {}
-    public Epreuve(String Libelle_epreuve, String Description_epreuve, Time Duree_epreuve, Date Date_epreuve) {
-        this.Libelle_epreuve = Libelle_epreuve;
-        this.Description_epreuve = Description_epreuve;
-        this.Duree_epreuve = Duree_epreuve;
-        this.Date_epreuve = Date_epreuve;
+    public Epreuve(String libelleEpreuve, String descriptionEpreuve, Time dureeEpreuve, Date dateEpreuve) {
+        this.libelleEpreuve = libelleEpreuve;
+        this.descriptionEpreuve = descriptionEpreuve;
+        this.dureeEpreuve = dureeEpreuve;
+        this.dateEpreuve = dateEpreuve;
     }
     
-
     /**
      * @return String return the uuid
      */
-    public String getUuid_epreuve() {
+    public String getUuid() {
         return uuid;
     }
 
     /**
-     * @return String return the Libelle_epreuve
+     * @param uuid the uuid to set
      */
-    public String getLibelle_epreuve() {
-        return Libelle_epreuve;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     /**
-     * @param Libelle_epreuve the Libelle_epreuve to set
+     * @return String return the libelleEpreuve
      */
-    public void setLibelle_epreuve(String Libelle_epreuve) {
-        this.Libelle_epreuve = Libelle_epreuve;
+    public String getLibelleEpreuve() {
+        return libelleEpreuve;
     }
 
     /**
-     * @return String return the Description_epreuve
+     * @param libelleEpreuve the libelleEpreuve to set
      */
-    public String getDescription_epreuve() {
-        return Description_epreuve;
+    public void setLibelleEpreuve(String libelleEpreuve) {
+        this.libelleEpreuve = libelleEpreuve;
     }
 
     /**
-     * @param Description_epreuve the Description_epreuve to set
+     * @return String return the descriptionEpreuve
      */
-    public void setDescription_epreuve(String Description_epreuve) {
-        this.Description_epreuve = Description_epreuve;
+    public String getDescriptionEpreuve() {
+        return descriptionEpreuve;
     }
 
     /**
-     * @return Time return the Duree_epreuve
+     * @param descriptionEpreuve the descriptionEpreuve to set
      */
-    public Time getDuree_epreuve() {
-        return Duree_epreuve;
+    public void setDescriptionEpreuve(String descriptionEpreuve) {
+        this.descriptionEpreuve = descriptionEpreuve;
     }
 
     /**
-     * @param Duree_epreuve the Duree_epreuve to set
+     * @return Time return the dureeEpreuve
      */
-    public void setDuree_epreuve(Time Duree_epreuve) {
-        this.Duree_epreuve = Duree_epreuve;
+    public Time getDureeEpreuve() {
+        return dureeEpreuve;
     }
 
     /**
-     * @return Date return the Date_epreuve
+     * @param dureeEpreuve the dureeEpreuve to set
      */
-    public Date getDate_epreuve() {
-        return Date_epreuve;
+    public void setDureeEpreuve(Time dureeEpreuve) {
+        this.dureeEpreuve = dureeEpreuve;
     }
 
     /**
-     * @param Date_epreuve the Date_epreuve to set
+     * @return Date return the dateEpreuve
      */
-    public void setDate_epreuve(Date Date_epreuve) {
-        this.Date_epreuve = Date_epreuve;
+    public Date getDateEpreuve() {
+        return dateEpreuve;
     }
 
     /**
-     * @return boolean return the Est_ouverte
+     * @param dateEpreuve the dateEpreuve to set
      */
-    public boolean isEst_ouverte() {
-        return Est_ouverte;
+    public void setDateEpreuve(Date dateEpreuve) {
+        this.dateEpreuve = dateEpreuve;
     }
 
     /**
-     * @param Est_ouverte the Est_ouverte to set
+     * @return boolean return the estOuverte
      */
-    public void setEst_ouverte(boolean Est_ouverte) {
-        this.Est_ouverte = Est_ouverte;
+    public boolean isEstOuverte() {
+        return estOuverte;
+    }
+
+    /**
+     * @param estOuverte the estOuverte to set
+     */
+    public void setEstOuverte(boolean estOuverte) {
+        this.estOuverte = estOuverte;
     }
 
     /**

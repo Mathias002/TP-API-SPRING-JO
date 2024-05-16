@@ -14,19 +14,19 @@ public class Billet {
     private String uuid;
     
 	@Column(nullable = false)
-    private String Nom;
+    private String nom;
 
     @Column(nullable = false)
-    private Float Prix;
+    private Float prix;
 
     @CreationTimestamp
 	@Column(updatable = false)
-	private Date Created_at;
+	private Date createdAt;
 
     private LocalDateTime deletedAt = null;
    
     @Column(nullable = false)
-    private boolean IsValid = true;
+    private boolean isValid = true;
     
     @ManyToOne
     @JoinColumn(name = "boutique_uuid")
@@ -46,90 +46,153 @@ public class Billet {
 
     // completer le constructeur
     public Billet() {}
-    public Billet(Float Prix, String Nom, Date Created_at, LocalDateTime deletedAt, boolean IsValid) {
-        this.Prix = Prix;
-        this.Nom = Nom;
-        this.Created_at = Created_at;
+    public Billet(Float prix, String nom, Date createdAt, LocalDateTime deletedAt, boolean isValid) {
+        this.prix = prix;
+        this.nom = nom;
+        this.createdAt = createdAt;
         this.deletedAt = deletedAt;
-        this.IsValid = IsValid;
+        this.isValid = isValid;
     }    
+
 
     /**
      * @return String return the uuid
      */
-    public String getUuid_billet() {
+    public String getUuid() {
         return uuid;
     }
 
     /**
-     * @return Float return the Prix
+     * @param uuid the uuid to set
+     */
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    /**
+     * @return String return the nom
+     */
+    public String getNom() {
+        return nom;
+    }
+
+    /**
+     * @param nom the nom to set
+     */
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    /**
+     * @return Float return the prix
      */
     public Float getPrix() {
-        return Prix;
+        return prix;
     }
 
     /**
-     * @param Prix the Prix to set
+     * @param prix the prix to set
      */
-    public void setPrix(Float Prix) {
-        this.Prix = Prix;
+    public void setPrix(Float prix) {
+        this.prix = prix;
     }
 
     /**
-     * @return Boolean return the IsValid
+     * @return Date return the createdAt
      */
-    public boolean isIsValid() {
-        return IsValid;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
     /**
-     * @param IsValid the IsValid to set
+     * @param createdAt the createdAt to set
      */
-    public void setIsValid(boolean IsValid) {
-        this.IsValid = IsValid;
-    }
-
-
-    /**
-     * @return Date return the Created_at
-     */
-    public Date getCreated_at() {
-        return Created_at;
-    }
-
-    /**
-     * @param Created_at the Created_at to set
-     */
-    public void setCreated_at(Date Created_at) {
-        this.Created_at = Created_at;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
     /**
      * @return LocalDateTime return the deletedAt
      */
-    public LocalDateTime getDeleted_at() {
+    public LocalDateTime getDeletedAt() {
         return deletedAt;
     }
 
     /**
      * @param deletedAt the deletedAt to set
      */
-    public void setDeleted_at(LocalDateTime deletedAt) {
+    public void setDeletedAt(LocalDateTime deletedAt) {
         this.deletedAt = deletedAt;
     }
 
     /**
-     * @return String return the Nom
+     * @return boolean return the isValid
      */
-    public String getNom() {
-        return Nom;
+    public boolean isIsValid() {
+        return isValid;
     }
 
     /**
-     * @param Nom the Nom to set
+     * @param isValid the isValid to set
      */
-    public void setNom(String Nom) {
-        this.Nom = Nom;
+    public void setIsValid(boolean isValid) {
+        this.isValid = isValid;
+    }
+
+    /**
+     * @return Boutique return the boutique
+     */
+    public Boutique getBoutique() {
+        return boutique;
+    }
+
+    /**
+     * @param boutique the boutique to set
+     */
+    public void setBoutique(Boutique boutique) {
+        this.boutique = boutique;
+    }
+
+    /**
+     * @return Commande return the commande
+     */
+    public Commande getCommande() {
+        return commande;
+    }
+
+    /**
+     * @param commande the commande to set
+     */
+    public void setCommande(Commande commande) {
+        this.commande = commande;
+    }
+
+    /**
+     * @return Epreuve return the epreuve
+     */
+    public Epreuve getEpreuve() {
+        return epreuve;
+    }
+
+    /**
+     * @param epreuve the epreuve to set
+     */
+    public void setEpreuve(Epreuve epreuve) {
+        this.epreuve = epreuve;
+    }
+
+    /**
+     * @return Spectateur return the spectateur
+     */
+    public Spectateur getSpectateur() {
+        return spectateur;
+    }
+
+    /**
+     * @param spectateur the spectateur to set
+     */
+    public void setSpectateur(Spectateur spectateur) {
+        this.spectateur = spectateur;
     }
 
 }

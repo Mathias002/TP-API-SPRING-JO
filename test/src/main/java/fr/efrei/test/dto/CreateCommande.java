@@ -9,28 +9,28 @@ public class CreateCommande {
 
     @NotBlank(message= "Veuillez choisir le nom de la boutique")
     @Size(min = 2, message = "La nom doit contenir minimun 2 caractères")
-	private String Nom;
+	private String nom;
 
     private Set<Billet> billets = new HashSet<>();
     
 
-    public CreateCommande(String Nom, Set<Billet> billets) {
-        this.Nom = Nom;
+    public CreateCommande(String nom, Set<Billet> billets) {
+        this.nom = nom;
         this.billets = billets;
     }
 
     /**
-     * @return String return the Nom
+     * @return String return the nom
      */
     public String getNom() {
-        return Nom;
+        return nom;
     }
 
     /**
-     * @param Nom the Nom to set
+     * @param nom the nom to set
      */
-    public void setNom(String Nom) {
-        this.Nom = Nom;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     /**

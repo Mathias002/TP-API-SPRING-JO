@@ -43,7 +43,7 @@ public class StadeService {
 	public boolean delete(String uuid) {
 		Stade stadeASupprimer = findStadeById(uuid);
 		if(stadeASupprimer != null ){
-			repository.save(stadeASupprimer);
+			repository.delete(stadeASupprimer);
 			return true;
 		}
 		return false;

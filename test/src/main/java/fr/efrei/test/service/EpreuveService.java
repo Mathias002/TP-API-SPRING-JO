@@ -31,10 +31,10 @@ public class EpreuveService {
 		// ici je suis dans la DTO
 		//
 		Epreuve epreuveACreer = new Epreuve(
-				epreuve.getLibelle_epreuve(),
-				epreuve.getDescription_epreuve(),
-				epreuve.getDuree_epreuve(),
-				epreuve.getDate_epreuve()
+				epreuve.getLibelleEpreuve(),
+				epreuve.getDescriptionEpreuve(),
+				epreuve.getDureeEpreuve(),
+				epreuve.getDateEpreuve()
 		);
 		// je suis dans une entité
 		return repository.save(epreuveACreer);
@@ -54,11 +54,11 @@ public class EpreuveService {
 		Epreuve epreuveAModifier = findEpreuveById(uuid);
 
 		if(epreuveAModifier != null) {
-			epreuveAModifier.setLibelle_epreuve(epreuve.getLibelle_epreuve());
-			epreuveAModifier.setDescription_epreuve(epreuve.getDescription_epreuve());
-			epreuveAModifier.setDuree_epreuve(epreuve.getDuree_epreuve());
-			epreuveAModifier.setDate_epreuve(epreuve.getDate_epreuve());
-			epreuveAModifier.setEst_ouverte(epreuve.isEst_ouverte());
+			epreuveAModifier.setLibelleEpreuve(epreuve.getLibelleEpreuve());
+			epreuveAModifier.setDescriptionEpreuve(epreuve.getDescriptionEpreuve());
+			epreuveAModifier.setDureeEpreuve(epreuve.getDureeEpreuve());
+			epreuveAModifier.setDateEpreuve(epreuve.getDateEpreuve());
+			epreuveAModifier.setEstOuverte(epreuve.isEstOuverte());
 			repository.save(epreuveAModifier);
 			return true;
 		}
@@ -69,12 +69,12 @@ public class EpreuveService {
 		Epreuve epreuveAModifier = findEpreuveById(uuid);
 
 		if(epreuveAModifier != null) {
-			if(!epreuve.getLibelle_epreuve().isEmpty()) {
-				epreuveAModifier.setLibelle_epreuve(epreuve.getLibelle_epreuve());
-                epreuveAModifier.setDescription_epreuve(epreuve.getDescription_epreuve());
-                epreuveAModifier.setDuree_epreuve(epreuve.getDuree_epreuve());
-                epreuveAModifier.setDate_epreuve(epreuve.getDate_epreuve());
-                epreuveAModifier.setEst_ouverte(epreuve.isEst_ouverte());
+			if(!epreuve.getLibelleEpreuve().isEmpty()) {
+				epreuveAModifier.setLibelleEpreuve(epreuve.getLibelleEpreuve());
+                epreuveAModifier.setDescriptionEpreuve(epreuve.getDescriptionEpreuve());
+                epreuveAModifier.setDureeEpreuve(epreuve.getDureeEpreuve());
+                epreuveAModifier.setDateEpreuve(epreuve.getDateEpreuve());
+                epreuveAModifier.setEstOuverte(epreuve.isEstOuverte());
 			}
 			repository.save(epreuveAModifier);
 			return true;

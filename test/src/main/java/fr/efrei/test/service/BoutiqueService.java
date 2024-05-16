@@ -31,7 +31,7 @@ public class BoutiqueService {
 		// ici je suis dans la DTO
 		//
 		Boutique boutiqueACreer = new Boutique(
-				boutique.getNom_boutique()
+				boutique.getNomBoutique()
 		);
 		// je suis dans une entité
 		return repository.save(boutiqueACreer);
@@ -51,7 +51,7 @@ public class BoutiqueService {
 		Boutique boutiqueAModifier = findBoutiqueById(uuid);
 
 		if(boutiqueAModifier != null) {
-			boutiqueAModifier.setNom_boutique(boutique.getNom_boutique());
+			boutiqueAModifier.setNomBoutique(boutique.getNomBoutique());
 			repository.save(boutiqueAModifier);
 			return true;
 		}
@@ -62,8 +62,8 @@ public class BoutiqueService {
 		Boutique boutiqueAModifier = findBoutiqueById(uuid);
 
 		if(boutiqueAModifier != null) {
-			if(!boutique.getNom_boutique().isEmpty()) {
-				boutiqueAModifier.setNom_boutique(boutique.getNom_boutique());
+			if(!boutique.getNomBoutique().isEmpty()) {
+				boutiqueAModifier.setNomBoutique(boutique.getNomBoutique());
 			}
 			repository.save(boutiqueAModifier);
 			return true;

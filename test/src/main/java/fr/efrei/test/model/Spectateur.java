@@ -28,16 +28,16 @@ public class Spectateur implements UserDetails{
     private String email;
 
     @Column(nullable = false)
-    private String Password;
+    private String password;
 
     @Column(nullable = false, length = 50)
-    private String Nom;
+    private String nom;
 
     @Column(nullable = false, length = 50)
-    private String Prenom;
+    private String prenom;
 
     @Column(nullable = true)
-    private Float Solde;
+    private Float solde;
 
     @CreationTimestamp
 	@Column(updatable = false)
@@ -69,11 +69,11 @@ public class Spectateur implements UserDetails{
 	}
 
 
-	public Spectateur( String email, String Password, String Nom, String Prenom) {
+	public Spectateur( String email, String password, String nom, String prenom) {
 		this.email = email;
-		this.Password = Password;
-		this.Nom = Nom;
-		this.Prenom = Prenom;
+		this.password = password;
+		this.nom = nom;
+		this.prenom = prenom;
 	}
 
 
@@ -82,8 +82,8 @@ public class Spectateur implements UserDetails{
 		return email;
 	}
 
-	public String getPassword() {
-		return Password;
+	public String getpassword() {
+		return password;
 	}
 
 	
@@ -116,46 +116,117 @@ public class Spectateur implements UserDetails{
 		this.deletedAt = deletedAt;
 	}
 
+
     /**
-     * @return String return the Nom
+     * @return String return the uuid
+     */
+    public String getUuid() {
+        return uuid;
+    }
+
+    /**
+     * @param uuid the uuid to set
+     */
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    /**
+     * @return String return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    /**
+     * @return String return the nom
      */
     public String getNom() {
-        return Nom;
+        return nom;
     }
 
     /**
-     * @param Nom the Nom to set
+     * @param nom the nom to set
      */
-    public void setNom(String Nom) {
-        this.Nom = Nom;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     /**
-     * @return String return the Prenom
+     * @return String return the prenom
      */
     public String getPrenom() {
-        return Prenom;
+        return prenom;
     }
 
     /**
-     * @param Prenom the Prenom to set
+     * @param prenom the prenom to set
      */
-    public void setPrenom(String Prenom) {
-        this.Prenom = Prenom;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
     /**
-     * @return Float return the Solde
+     * @return Float return the solde
      */
     public Float getSolde() {
-        return Solde;
+        return solde;
     }
 
     /**
-     * @param Solde the Solde to set
+     * @param solde the solde to set
      */
-    public void setSolde(Float Solde) {
-        this.Solde = Solde;
+    public void setSolde(Float solde) {
+        this.solde = solde;
+    }
+
+    /**
+     * @return Role return the role
+     */
+    public Role getRole() {
+        return role;
+    }
+
+    /**
+     * @param role the role to set
+     */
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    /**
+     * @return Set<Billet> return the billets
+     */
+    public Set<Billet> getBillets() {
+        return billets;
+    }
+
+    /**
+     * @param billets the billets to set
+     */
+    public void setBillets(Set<Billet> billets) {
+        this.billets = billets;
+    }
+
+    /**
+     * @return Set<Commande> return the commandes
+     */
+    public Set<Commande> getCommandes() {
+        return commandes;
+    }
+
+    /**
+     * @param commandes the commandes to set
+     */
+    public void setCommandes(Set<Commande> commandes) {
+        this.commandes = commandes;
     }
 
 }

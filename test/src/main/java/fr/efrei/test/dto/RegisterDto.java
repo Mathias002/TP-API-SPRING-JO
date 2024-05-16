@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Size;
 
 public class RegisterDto {
 
-
+	@NotBlank(message= "Veuillez saisir une adresse email")
 	private String email;
 
 	@NotBlank(message= "Veuillez saisir un mot de passe")

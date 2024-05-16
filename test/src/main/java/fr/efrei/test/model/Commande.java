@@ -15,11 +15,11 @@ public class Commande {
     private String uuid ;
 
     @Column(nullable = false)
-    private String Nom ;
+    private String nom ;
 
     @CreationTimestamp
 	@Column(updatable = false)
-	private Date Created_at;
+	private Date createdAt;
 
     private LocalDateTime deletedAt = null;
 
@@ -31,8 +31,8 @@ public class Commande {
     private Spectateur spectateur;
 
     public Commande() {}
-    public Commande(String Nom, Set<Billet> billets) {
-        this.Nom = Nom;
+    public Commande(String nom, Set<Billet> billets) {
+        this.nom = nom;
         this.billets = billets;
     }    
 
@@ -51,31 +51,31 @@ public class Commande {
     }
 
     /**
-     * @return String return the Nom
+     * @return String return the nom
      */
     public String getNom() {
-        return Nom;
+        return nom;
     }
 
     /**
-     * @param Nom the Nom to set
+     * @param nom the nom to set
      */
-    public void setNom(String Nom) {
-        this.Nom = Nom;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     /**
-     * @return Date return the Created_at
+     * @return Date return the createdAt
      */
-    public Date getCreated_at() {
-        return Created_at;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
     /**
-     * @param Created_at the Created_at to set
+     * @param createdAt the createdAt to set
      */
-    public void setCreated_at(Date Created_at) {
-        this.Created_at = Created_at;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
     /**

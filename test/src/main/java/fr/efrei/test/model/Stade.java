@@ -1,6 +1,10 @@
 package fr.efrei.test.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 import java.util.*;
 
 @Entity
@@ -12,12 +16,16 @@ public class Stade {
     private String uuid;
 
     @Column(nullable = false, length = 100)
+    @NotBlank
     private String Nom_stade;
 
     @Column(nullable = false, length = 100)
+    @NotBlank
     private String Adresse_stade;
 
     @Column(nullable = false)
+    @NotNull
+    @Min(value = 10000)
     private Integer Capacite_stade;
 
     @Column(nullable = false)
