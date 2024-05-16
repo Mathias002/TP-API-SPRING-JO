@@ -3,6 +3,7 @@ package fr.efrei.test.service;
 
 import fr.efrei.test.dto.CreateCommande;
 import fr.efrei.test.dto.UpdateCommande;
+import fr.efrei.test.model.Billet;
 import fr.efrei.test.model.Commande;
 import fr.efrei.test.model.Spectateur;
 import fr.efrei.test.repository.CommandeRepository;
@@ -33,6 +34,7 @@ public class CommandeService {
 
 	public Commande create(CreateCommande commandedata) {
 		// ici je suis dans la DTO
+		System.out.println(commandedata.getSpectateur());
 		Spectateur spectateur = spectateurService.findSpectateurById(commandedata.getSpectateur());
 		Commande commande = new Commande(commandedata.getNom());
 		commande.setSpectateur(spectateur);

@@ -22,21 +22,16 @@ public class Commande {
 	private Date createdAt;
 
     private LocalDateTime deletedAt = null;
-    
+
 
     @ManyToOne
     @JoinColumn(name = "spectateur_uuid")
     private Spectateur spectateur;
 
     public Commande() {}
-    public Commande(String nom, Spectateur spectateur) {
-        this.nom = nom;
-        this.spectateur = spectateur;
-    }    
-   
     public Commande(String nom) {
         this.nom = nom;
-    }    
+    }      
 
     /**
      * @return String return the uuid

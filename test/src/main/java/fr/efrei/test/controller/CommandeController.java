@@ -41,7 +41,7 @@ public class CommandeController {
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
-	@PreAuthorize("hasAuthority('ADMIN')")
+	// @PreAuthorize("hasAuthority('ADMIN')")
 	@PostMapping
 	public ResponseEntity<Commande> save(@Valid @RequestBody CreateCommande commande) {
 		Commande createdCommande = service.create(commande);

@@ -1,5 +1,6 @@
 package fr.efrei.test.dto;
 
+import fr.efrei.test.model.Spectateur;
 import jakarta.validation.constraints.*;
 
 public class CreateCommande {
@@ -8,17 +9,13 @@ public class CreateCommande {
     @Size(min = 2, message = "La nom doit contenir minimun 2 caractères")
 	private String nom;
     
-    public CreateCommande(String nom) {
-        this.nom = nom;
-    }
+    @NotBlank(message = "Veuillez saisir un spectateur")
+    private String spectateur;
 
     public CreateCommande(String nom, String spectateur) {
         this.nom = nom;
         this.spectateur = spectateur;
     }
-
-    @NotBlank(message = "Veuillez saisir un spectateur")
-    private String spectateur;
 
     /**
      * @return String return the nom
@@ -27,6 +24,9 @@ public class CreateCommande {
         return nom;
     }
 
+    /**
+     * @return String return the nom
+     */
     public String getSpectateur() {
         return spectateur;
     }
