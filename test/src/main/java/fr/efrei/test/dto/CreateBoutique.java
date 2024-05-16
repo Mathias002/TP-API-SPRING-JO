@@ -3,14 +3,10 @@ package fr.efrei.test.dto;
 import jakarta.validation.constraints.*;
 
 public class CreateBoutique {
-    
-    @NotBlank(message= "Veuillez choisir le nom de la boutique")
-    @Size(min = 2, message = "La nom doit contenir minimun 2 caractères")
-	private String nomBoutique;
 
-    public CreateBoutique(String nomBoutique) {
-        this.nomBoutique = nomBoutique;
-    }
+    @NotBlank(message = "Veuillez choisir le nom de la boutique")
+    @Size(min = 2, message = "Le nom doit contenir minimun 2 caractères")
+    private String nomBoutique;
 
     /**
      * @return String return the nomBoutique

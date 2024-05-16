@@ -23,9 +23,6 @@ public class Epreuve {
     
     @Column(nullable = false)
     private boolean estOuverte = false;
-
-    @OneToMany(mappedBy = "epreuve", cascade = CascadeType.ALL)
-    private Set<Billet> billets = new HashSet<>();
     
     @ManyToMany(mappedBy = "epreuve")
     Set<Stade> stade;
@@ -105,20 +102,6 @@ public class Epreuve {
      */
     public void setEstOuverte(boolean estOuverte) {
         this.estOuverte = estOuverte;
-    }
-
-    /**
-     * @return Set<Billet> return the billets
-     */
-    public Set<Billet> getBillets() {
-        return billets;
-    }
-
-    /**
-     * @param billets the billets to set
-     */
-    public void setBillets(Set<Billet> billets) {
-        this.billets = billets;
     }
 
 }

@@ -50,9 +50,6 @@ public class Spectateur implements UserDetails{
 
 	@Enumerated(EnumType.STRING)
 	private Role role;
-
-	@OneToMany(mappedBy = "spectateur", cascade = CascadeType.ALL)
-    private Set<Billet> billets = new HashSet<>();
 	
 	@OneToMany(mappedBy = "spectateur", cascade = CascadeType.ALL)
     private Set<Commande> commandes = new HashSet<>();
@@ -127,8 +124,6 @@ public class Spectateur implements UserDetails{
         this.uuid = uuid;
     }
 
-
-
     /**
      * @return String return the nom
      */
@@ -183,20 +178,6 @@ public class Spectateur implements UserDetails{
      */
     public void setRole(Role role) {
         this.role = role;
-    }
-
-    /**
-     * @return Set<Billet> return the billets
-     */
-    public Set<Billet> getBillets() {
-        return billets;
-    }
-
-    /**
-     * @param billets the billets to set
-     */
-    public void setBillets(Set<Billet> billets) {
-        this.billets = billets;
     }
 
     /**

@@ -11,14 +11,6 @@ public class UpdateCommande {
     @Size(min = 2, message = "La nom doit contenir minimun 2 caractères")
 	private String nom;
 
-    private Set<Billet> billets = new HashSet<>();
-    
-
-    public UpdateCommande(String nom, Set<Billet> billets) {
-        this.nom = nom;
-        this.billets = billets;
-    }
-
     /**
      * @return String return the nom
      */
@@ -31,20 +23,6 @@ public class UpdateCommande {
      */
     public void setNom(String nom) {
         this.nom = nom;
-    }
-
-    /**
-     * @return Set<Billet> return the billets
-     */
-    public Set<Billet> getBillets() {
-        return billets;
-    }
-
-    /**
-     * @param billets the billets to set
-     */
-    public void setBillets(Set<Billet> billets) {
-        this.billets = billets;
     }
 
 }

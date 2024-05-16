@@ -3,7 +3,6 @@ package fr.efrei.test.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-import java.sql.Time;
 import java.util.*;
 
 public class UpdateEpreuve {
@@ -19,13 +18,6 @@ public class UpdateEpreuve {
     
     private boolean estOuverte;
 
-    public UpdateEpreuve(String libelleEpreuve, String descriptionEpreuve, Date dateEpreuve, boolean estOuverte) {
-        this.libelleEpreuve = libelleEpreuve;
-        this.descriptionEpreuve = descriptionEpreuve;
-        this.dateEpreuve = dateEpreuve;
-        this.estOuverte = estOuverte;
-    }
-    
     /**
      * @return String return the libelleEpreuve
      */

@@ -2,8 +2,6 @@ package fr.efrei.test.model;
 
 import jakarta.persistence.*;
 
-import java.util.*;
-
 @Entity
 public class Boutique {
 
@@ -15,8 +13,6 @@ public class Boutique {
     @Column(nullable = false, length = 100)
     private String nomBoutique;
     
-    @OneToMany(mappedBy = "boutique", cascade = CascadeType.ALL)
-    private Set<Billet> billets = new HashSet<>();
     
     public Boutique() {}
     public Boutique( String nomBoutique) {
@@ -49,20 +45,6 @@ public class Boutique {
      */
     public void setNomBoutique(String nomBoutique) {
         this.nomBoutique = nomBoutique;
-    }
-
-    /**
-     * @return Set<Billet> return the billets
-     */
-    public Set<Billet> getBillets() {
-        return billets;
-    }
-
-    /**
-     * @param billets the billets to set
-     */
-    public void setBillets(Set<Billet> billets) {
-        this.billets = billets;
     }
 
 }

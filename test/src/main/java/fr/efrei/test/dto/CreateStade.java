@@ -19,15 +19,6 @@ public class CreateStade {
     @NotNull(message = "La capacité du stade ne peut pas être nulle")
     @Min(value = 10000, message = "La capacité du stade doit être au moins de 10000")
     private Integer capaciteStade;
-
-    
-
-
-    public CreateStade(String nomStade, String adresseStade, Integer capaciteStade) {
-        this.nomStade = nomStade;
-        this.adresseStade = adresseStade;
-        this.capaciteStade = capaciteStade;
-    }
     
     /**
      * @return String return the uuid

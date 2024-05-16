@@ -20,13 +20,6 @@ public class CreateSpectateur {
     @Size(min = 1, max = 25)
 	private String prenom;
 
-	public CreateSpectateur(String email, String Password, String Nom, String Prenom) {
-		this.email = email;
-		this.password = Password;
-		this.nom = Nom;
-		this.prenom = Prenom;
-	}
-
     /**
      * @return String return the email
      */

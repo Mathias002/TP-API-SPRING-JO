@@ -23,13 +23,6 @@ public class UpdateStade {
     private Integer capaciteStade;
 
     private boolean estReserve;
-
-    public UpdateStade(String nomStade, String adresseStade, Integer capaciteStade, boolean estReserve) {
-        this.nomStade = nomStade;
-        this.adresseStade = adresseStade;
-        this.capaciteStade = capaciteStade;
-        this.estReserve = estReserve;
-    }
     
     /**
      * @return String return the uuid

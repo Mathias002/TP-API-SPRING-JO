@@ -23,17 +23,13 @@ public class Commande {
 
     private LocalDateTime deletedAt = null;
 
-    @OneToMany(mappedBy = "commande", cascade = CascadeType.ALL)
-    private Set<Billet> billets = new HashSet<>();
-
     @ManyToOne
     @JoinColumn(name = "spectateur_uuid")
     private Spectateur spectateur;
 
     public Commande() {}
-    public Commande(String nom, Set<Billet> billets) {
+    public Commande(String nom) {
         this.nom = nom;
-        this.billets = billets;
     }    
 
     /**
@@ -90,20 +86,6 @@ public class Commande {
      */
     public void setDeletedAt(LocalDateTime deletedAt) {
         this.deletedAt = deletedAt;
-    }
-
-    /**
-     * @return Set<Billet> return the billets
-     */
-    public Set<Billet> getBillets() {
-        return billets;
-    }
-
-    /**
-     * @param billets the billets to set
-     */
-    public void setBillets(Set<Billet> billets) {
-        this.billets = billets;
     }
 
     /**

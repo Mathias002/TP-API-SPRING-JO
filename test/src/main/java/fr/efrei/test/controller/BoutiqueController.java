@@ -45,6 +45,7 @@ public class BoutiqueController {
 	@PostMapping
 	public ResponseEntity<Boutique> save(@Valid @RequestBody CreateBoutique boutique) {
 		Boutique createdBoutique = service.create(boutique);
+		System.out.println("test");
 		return new ResponseEntity<>(createdBoutique, HttpStatus.CREATED);
 	}
 

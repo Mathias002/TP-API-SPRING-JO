@@ -17,12 +17,6 @@ public class CreateEpreuve {
     private Date dateEpreuve;  
     
     private boolean estOuverte = false;
-
-    public CreateEpreuve(String libelleEpreuve, String descriptionEpreuve,  Date dateEpreuve) {
-        this.libelleEpreuve = libelleEpreuve;
-        this.descriptionEpreuve = descriptionEpreuve;
-        this.dateEpreuve = dateEpreuve;
-    }
     
     /**
      * @return String return the libelleEpreuve

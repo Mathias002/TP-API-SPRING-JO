@@ -31,8 +31,7 @@ public class CommandeService {
 		// ici je suis dans la DTO
 		//
 		Commande commandeACreer = new Commande(
-				commande.getNom(),
-				commande.getBillets()
+				commande.getNom()
 		);
 		// je suis dans une entité
 		return repository.save(commandeACreer);

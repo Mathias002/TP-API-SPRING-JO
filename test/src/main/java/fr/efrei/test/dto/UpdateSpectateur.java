@@ -19,13 +19,6 @@ public class UpdateSpectateur {
     @Size(min = 1, max = 25)
 	private String prenom;
 
-	public UpdateSpectateur(String email, String password, String nom, String prenom) {
-		this.email = email;
-		this.password = password;
-		this.nom = nom;
-		this.prenom = prenom;
-	}
-
     /**
      * @return String return the email
      */
