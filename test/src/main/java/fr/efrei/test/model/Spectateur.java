@@ -68,7 +68,6 @@ public class Spectateur implements UserDetails{
 		return authorities;
 	}
 
-
 	public Spectateur( String email, String password, String nom, String prenom) {
 		this.email = email;
 		this.password = password;
@@ -76,17 +75,14 @@ public class Spectateur implements UserDetails{
 		this.prenom = prenom;
 	}
 
-
     @Override
 	public String getUsername() {
 		return email;
 	}
 
-	public String getpassword() {
+	public String getPassword() {
 		return password;
 	}
-
-	
 
 	@Override
 	public boolean isAccountNonExpired() {
@@ -131,19 +127,7 @@ public class Spectateur implements UserDetails{
         this.uuid = uuid;
     }
 
-    /**
-     * @return String return the password
-     */
-    public String getPassword() {
-        return password;
-    }
 
-    /**
-     * @param password the password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     /**
      * @return String return the nom

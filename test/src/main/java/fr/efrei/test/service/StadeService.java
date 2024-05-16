@@ -31,9 +31,9 @@ public class StadeService {
 		// ici je suis dans la DTO
 		//
 		Stade stadeACreer = new Stade(
-				stade.getNom_stade(),
-				stade.getAdresse_stade(),
-				stade.getCapacite_stade()
+				stade.getNomStade(),
+				stade.getAdresseStade(),
+				stade.getCapaciteStade()
 		);
 		// je suis dans une entité
 		return repository.save(stadeACreer);
@@ -53,10 +53,10 @@ public class StadeService {
 		Stade stadeAModifier = findStadeById(uuid);
 
 		if(stadeAModifier != null) {
-			stadeAModifier.setNom_stade(stade.getNom_stade());
-			stadeAModifier.setAdresse_stade(stade.getAdresse_stade());
-			stadeAModifier.setCapacite_stade(stade.getCapacite_stade());
-			stadeAModifier.setEst_reserve(stade.getEst_reserve());
+			stadeAModifier.setNomStade(stade.getNomStade());
+			stadeAModifier.setAdresseStade(stade.getAdresseStade());
+			stadeAModifier.setCapaciteStade(stade.getCapaciteStade());
+			stadeAModifier.setEstReserve(stade.isEstReserve());
 			repository.save(stadeAModifier);
 			return true;
 		}
@@ -67,11 +67,11 @@ public class StadeService {
 		Stade stadeAModifier = findStadeById(uuid);
 
 		if(stadeAModifier != null) {
-			if(!stade.getNom_stade().isEmpty()) {
-				stadeAModifier.setNom_stade(stade.getNom_stade());
-                stadeAModifier.setAdresse_stade(stade.getAdresse_stade());
-                stadeAModifier.setCapacite_stade(stade.getCapacite_stade());
-                stadeAModifier.setEst_reserve(stade.getEst_reserve());
+			if(!stade.getNomStade().isEmpty()) {
+				stadeAModifier.setNomStade(stade.getNomStade());
+                stadeAModifier.setAdresseStade(stade.getAdresseStade());
+                stadeAModifier.setCapaciteStade(stade.getCapaciteStade());
+                stadeAModifier.setEstReserve(stade.isEstReserve());
 			}
 			repository.save(stadeAModifier);
 			return true;

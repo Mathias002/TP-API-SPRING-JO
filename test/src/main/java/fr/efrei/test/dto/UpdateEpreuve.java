@@ -1,6 +1,7 @@
 package fr.efrei.test.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.sql.Time;
 import java.util.*;
@@ -13,19 +14,14 @@ public class UpdateEpreuve {
     @NotBlank(message= "Veuillez choisir une description")
     private String descriptionEpreuve;
 
-    @NotBlank(message= "Veuillez choisir la durée de l'épreuve")
-    private Time dureeEpreuve;
-
-    @NotBlank(message= "Veuillez choisir la date de l'épreuve")
+    @NotNull(message= "Veuillez choisir la date de l'épreuve")
     private Date dateEpreuve;  
     
-    @NotBlank
     private boolean estOuverte;
 
-    public UpdateEpreuve(String libelleEpreuve, String descriptionEpreuve, Time dureeEpreuve, Date dateEpreuve, boolean estOuverte) {
+    public UpdateEpreuve(String libelleEpreuve, String descriptionEpreuve, Date dateEpreuve, boolean estOuverte) {
         this.libelleEpreuve = libelleEpreuve;
         this.descriptionEpreuve = descriptionEpreuve;
-        this.dureeEpreuve = dureeEpreuve;
         this.dateEpreuve = dateEpreuve;
         this.estOuverte = estOuverte;
     }
@@ -56,20 +52,6 @@ public class UpdateEpreuve {
      */
     public void setDescriptionEpreuve(String descriptionEpreuve) {
         this.descriptionEpreuve = descriptionEpreuve;
-    }
-
-    /**
-     * @return Time return the dureeEpreuve
-     */
-    public Time getDureeEpreuve() {
-        return dureeEpreuve;
-    }
-
-    /**
-     * @param dureeEpreuve the dureeEpreuve to set
-     */
-    public void setDureeEpreuve(Time dureeEpreuve) {
-        this.dureeEpreuve = dureeEpreuve;
     }
 
     /**

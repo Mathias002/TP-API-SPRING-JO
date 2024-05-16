@@ -15,21 +15,18 @@ public class Stade {
     @Column(nullable = false)
     private String uuid;
 
-    @Column(nullable = false, length = 100)
-    @NotBlank
-    private String Nom_stade;
-
-    @Column(nullable = false, length = 100)
-    @NotBlank
-    private String Adresse_stade;
+    @Column(nullable = false)
+    private String nomStade;
 
     @Column(nullable = false)
-    @NotNull
+    private String adresseStade;
+
+    @Column(nullable = false)
     @Min(value = 10000)
-    private Integer Capacite_stade;
+    private Integer capaciteStade;
 
     @Column(nullable = false)
-    private boolean Est_reserve = false;
+    private boolean estReserve = false;
 
     @ManyToMany
     @JoinTable(
@@ -39,73 +36,73 @@ public class Stade {
     Set<Epreuve> epreuve;
 
     public Stade() {}
-    public Stade(String Nom_stade, String Adresse_stade, Integer Capacite_stade) {
-        this.Nom_stade = Nom_stade;
-        this.Adresse_stade = Adresse_stade;
-        this.Capacite_stade = Capacite_stade;
+    public Stade(String nomStade, String adresseStade, Integer capaciteStade) {
+        this.nomStade = nomStade;
+        this.adresseStade = adresseStade;
+        this.capaciteStade = capaciteStade;
     }
     
     /**
      * @return String return the uuid
      */
-    public String getUuid_stade() {
+    public String getUuid() {
         return uuid;
     }
     
     /**
-     * @return String return the Nom_stade
+     * @return String return the nomStade
      */
-    public String getNom_stade() {
-        return Nom_stade;
+    public String getNomStade() {
+        return nomStade;
     }
 
     /**
-     * @param Nom_stade the Nom_stade to set
+     * @param nomStade the nomStade to set
      */
-    public void setNom_stade(String Nom_stade) {
-        this.Nom_stade = Nom_stade;
+    public void setNomStade(String nomStade) {
+        this.nomStade = nomStade;
     }
 
     /**
-     * @return String return the Adresse_stade
+     * @return String return the adresseStade
      */
-    public String getAdresse_stade() {
-        return Adresse_stade;
+    public String getAdresseStade() {
+        return adresseStade;
     }
 
     /**
-     * @param Adresse_stade the Adresse_stade to set
+     * @param adresseStade the adresseStade to set
      */
-    public void setAdresse_stade(String Adresse_stade) {
-        this.Adresse_stade = Adresse_stade;
+    public void setAdresseStade(String adresseStade) {
+        this.adresseStade = adresseStade;
     }
 
     /**
-     * @return Integer return the Capacite_stade
+     * @return Integer return the capaciteStade
      */
-    public Integer getCapacite_stade() {
-        return Capacite_stade;
+    public Integer getCapaciteStade() {
+        return capaciteStade;
     }
 
     /**
-     * @param Capacite_stade the Capacite_stade to set
+     * @param capaciteStade the capaciteStade to set
      */
-    public void setCapacite_stade(Integer Capacite_stade) {
-        this.Capacite_stade = Capacite_stade;
+    public void setCapaciteStade(Integer capaciteStade) {
+        this.capaciteStade = capaciteStade;
     }
 
     /**
-     * @return String return the Est_reserve
+     * @return String return the estReserve
      */
-    public boolean getEst_reserve() {
-        return Est_reserve;
+    public boolean isEstReserve() {
+        return estReserve;
     }
 
     /**
-     * @param Est_reserve the Est_reserve to set
+     * @param estReserve the estReserve to set
      */
-    public void setEst_reserve(boolean Est_reserve) {
-        this.Est_reserve = Est_reserve;
+    public void setEstReserve(boolean estReserve) {
+        this.estReserve = estReserve;
     }
 
 }

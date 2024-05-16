@@ -60,7 +60,7 @@ public class CommandeController {
 	@PutMapping("/{uuid}")
 	public ResponseEntity<?> mettreAJourTotalement(
 			@PathVariable String uuid,
-			@RequestBody UpdateCommande commande) {
+			@Valid @RequestBody UpdateCommande commande) {
 		boolean isUpdated = service.update(uuid, commande);
 		if(isUpdated) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -71,7 +71,7 @@ public class CommandeController {
 	@PatchMapping("/{uuid}")
 	public ResponseEntity<?> mettreAjourPartiellement(
 			@PathVariable String uuid,
-			@RequestBody UpdateCommande commande) {
+			@Valid @RequestBody UpdateCommande commande) {
 		boolean isUpdated = service.updatePartielle(uuid, commande);
 		if(isUpdated) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);

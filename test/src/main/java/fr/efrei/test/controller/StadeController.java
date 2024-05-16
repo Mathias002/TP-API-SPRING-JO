@@ -59,7 +59,7 @@ public class StadeController {
 	@PutMapping("/{uuid}")
 	public ResponseEntity<?> mettreAJourTotalement(
 			@PathVariable String uuid,
-			@RequestBody UpdateStade stade) {
+			@Valid @RequestBody UpdateStade stade) {
 		boolean isUpdated = service.update(uuid, stade);
 		if(isUpdated) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -70,7 +70,7 @@ public class StadeController {
 	@PatchMapping("/{uuid}")
 	public ResponseEntity<?> mettreAjourPartiellement(
 			@PathVariable String uuid,
-			@RequestBody UpdateStade stade) {
+			@Valid @RequestBody UpdateStade stade) {
 		boolean isUpdated = service.updatePartielle(uuid, stade);
 		if(isUpdated) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);

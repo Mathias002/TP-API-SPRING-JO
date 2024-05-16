@@ -19,9 +19,6 @@ public class Epreuve {
     private String descriptionEpreuve;
 
     @Column(nullable = false)
-    private Time dureeEpreuve;
-
-    @Column(nullable = false)
     private Date dateEpreuve;
     
     @Column(nullable = false)
@@ -34,10 +31,9 @@ public class Epreuve {
     Set<Stade> stade;
 
     public Epreuve() {}
-    public Epreuve(String libelleEpreuve, String descriptionEpreuve, Time dureeEpreuve, Date dateEpreuve) {
+    public Epreuve(String libelleEpreuve, String descriptionEpreuve, Date dateEpreuve) {
         this.libelleEpreuve = libelleEpreuve;
         this.descriptionEpreuve = descriptionEpreuve;
-        this.dureeEpreuve = dureeEpreuve;
         this.dateEpreuve = dateEpreuve;
     }
     
@@ -81,20 +77,6 @@ public class Epreuve {
      */
     public void setDescriptionEpreuve(String descriptionEpreuve) {
         this.descriptionEpreuve = descriptionEpreuve;
-    }
-
-    /**
-     * @return Time return the dureeEpreuve
-     */
-    public Time getDureeEpreuve() {
-        return dureeEpreuve;
-    }
-
-    /**
-     * @param dureeEpreuve the dureeEpreuve to set
-     */
-    public void setDureeEpreuve(Time dureeEpreuve) {
-        this.dureeEpreuve = dureeEpreuve;
     }
 
     /**

@@ -60,7 +60,7 @@ public class SpectateurController {
 	@PutMapping("/{uuid}")
 	public ResponseEntity<?> mettreAJourTotalement(
 			@PathVariable String uuid,
-			@RequestBody UpdateSpectateur spectateur) {
+			@Valid @RequestBody UpdateSpectateur spectateur) {
 		boolean isUpdated = service.update(uuid, spectateur);
 		if(isUpdated) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -71,7 +71,7 @@ public class SpectateurController {
 	@PatchMapping("/{uuid}")
 	public ResponseEntity<?> mettreAjourPartiellement(
 			@PathVariable String uuid,
-			@RequestBody UpdateSpectateur spectateur) {
+			@Valid @RequestBody UpdateSpectateur spectateur) {
 		boolean isUpdated = service.updatePartielle(uuid, spectateur);
 		if(isUpdated) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);

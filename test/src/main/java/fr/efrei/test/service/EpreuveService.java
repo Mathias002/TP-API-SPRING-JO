@@ -33,7 +33,6 @@ public class EpreuveService {
 		Epreuve epreuveACreer = new Epreuve(
 				epreuve.getLibelleEpreuve(),
 				epreuve.getDescriptionEpreuve(),
-				epreuve.getDureeEpreuve(),
 				epreuve.getDateEpreuve()
 		);
 		// je suis dans une entité
@@ -56,7 +55,6 @@ public class EpreuveService {
 		if(epreuveAModifier != null) {
 			epreuveAModifier.setLibelleEpreuve(epreuve.getLibelleEpreuve());
 			epreuveAModifier.setDescriptionEpreuve(epreuve.getDescriptionEpreuve());
-			epreuveAModifier.setDureeEpreuve(epreuve.getDureeEpreuve());
 			epreuveAModifier.setDateEpreuve(epreuve.getDateEpreuve());
 			epreuveAModifier.setEstOuverte(epreuve.isEstOuverte());
 			repository.save(epreuveAModifier);
@@ -72,7 +70,6 @@ public class EpreuveService {
 			if(!epreuve.getLibelleEpreuve().isEmpty()) {
 				epreuveAModifier.setLibelleEpreuve(epreuve.getLibelleEpreuve());
                 epreuveAModifier.setDescriptionEpreuve(epreuve.getDescriptionEpreuve());
-                epreuveAModifier.setDureeEpreuve(epreuve.getDureeEpreuve());
                 epreuveAModifier.setDateEpreuve(epreuve.getDateEpreuve());
                 epreuveAModifier.setEstOuverte(epreuve.isEstOuverte());
 			}

@@ -60,7 +60,7 @@ public class BoutiqueController {
 	@PutMapping("/{uuid}")
 	public ResponseEntity<?> mettreAJourTotalement(
 			@PathVariable String uuid,
-			@RequestBody UpdateBoutique boutique) {
+			@Valid @RequestBody UpdateBoutique boutique) {
 		boolean isUpdated = service.update(uuid, boutique);
 		if(isUpdated) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -71,7 +71,7 @@ public class BoutiqueController {
 	@PatchMapping("/{uuid}")
 	public ResponseEntity<?> mettreAjourPartiellement(
 			@PathVariable String uuid,
-			@RequestBody UpdateBoutique boutique) {
+			@Valid @RequestBody UpdateBoutique boutique) {
 		boolean isUpdated = service.updatePartielle(uuid, boutique);
 		if(isUpdated) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);

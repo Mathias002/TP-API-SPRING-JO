@@ -5,91 +5,100 @@ import java.util.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 public class UpdateStade {
 
     private String uuid;
 
     @NotBlank(message= "Veuillez renseigner le nom du stade")
-    private String Nom_stade;
+    @Size(min = 2, message = "Le nom doit contenir minimun 2 caractères")
+    private String nomStade;
 
     @NotBlank(message= "Veuillez renseigner l'adresse du stade")
-    private String Adresse_stade;
+    private String adresseStade;
 
     @NotNull(message = "La capacité du stade ne peut pas être nulle")
     @Min(value = 10000, message = "La capacité du stade doit être au moins de 10000")
-    private Integer Capacite_stade;
+    private Integer capaciteStade;
 
-    private boolean Est_reserve;
+    private boolean estReserve;
 
-    public UpdateStade(String Nom_stade, String Adresse_stade, Integer Capacite_stade, boolean Est_reserve) {
-        this.Nom_stade = Nom_stade;
-        this.Adresse_stade = Adresse_stade;
-        this.Capacite_stade = Capacite_stade;
-        this.Est_reserve = Est_reserve;
+    public UpdateStade(String nomStade, String adresseStade, Integer capaciteStade, boolean estReserve) {
+        this.nomStade = nomStade;
+        this.adresseStade = adresseStade;
+        this.capaciteStade = capaciteStade;
+        this.estReserve = estReserve;
     }
     
     /**
      * @return String return the uuid
      */
-    public String getUuid_stade() {
+    public String getUuid() {
         return uuid;
     }
-    
+
     /**
-     * @return String return the Nom_stade
+     * @param uuid the uuid to set
      */
-    public String getNom_stade() {
-        return Nom_stade;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     /**
-     * @param Nom_stade the Nom_stade to set
+     * @return String return the nomStade
      */
-    public void setNom_stade(String Nom_stade) {
-        this.Nom_stade = Nom_stade;
+    public String getNomStade() {
+        return nomStade;
     }
 
     /**
-     * @return String return the Adresse_stade
+     * @param nomStade the nomStade to set
      */
-    public String getAdresse_stade() {
-        return Adresse_stade;
+    public void setNomStade(String nomStade) {
+        this.nomStade = nomStade;
     }
 
     /**
-     * @param Adresse_stade the Adresse_stade to set
+     * @return String return the adresseStade
      */
-    public void setAdresse_stade(String Adresse_stade) {
-        this.Adresse_stade = Adresse_stade;
+    public String getAdresseStade() {
+        return adresseStade;
     }
 
     /**
-     * @return Integer return the Capacite_stade
+     * @param adresseStade the adresseStade to set
      */
-    public Integer getCapacite_stade() {
-        return Capacite_stade;
+    public void setAdresseStade(String adresseStade) {
+        this.adresseStade = adresseStade;
     }
 
     /**
-     * @param Capacite_stade the Capacite_stade to set
+     * @return Integer return the capaciteStade
      */
-    public void setCapacite_stade(Integer Capacite_stade) {
-        this.Capacite_stade = Capacite_stade;
+    public Integer getCapaciteStade() {
+        return capaciteStade;
     }
 
     /**
-     * @return String return the Est_reserve
+     * @param capaciteStade the capaciteStade to set
      */
-    public boolean getEst_reserve() {
-        return Est_reserve;
+    public void setCapaciteStade(Integer capaciteStade) {
+        this.capaciteStade = capaciteStade;
     }
 
     /**
-     * @param Est_reserve the Est_reserve to set
+     * @return boolean return the estReserve
      */
-    public void setEst_reserve(boolean Est_reserve) {
-        this.Est_reserve = Est_reserve;
+    public boolean isEstReserve() {
+        return estReserve;
+    }
+
+    /**
+     * @param estReserve the estReserve to set
+     */
+    public void setEstReserve(boolean estReserve) {
+        this.estReserve = estReserve;
     }
 
 }
