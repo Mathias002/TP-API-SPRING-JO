@@ -1,6 +1,5 @@
 package fr.efrei.test.dto;
 
-import fr.efrei.test.model.Spectateur;
 import jakarta.validation.constraints.*;
 
 public class CreateCommande {

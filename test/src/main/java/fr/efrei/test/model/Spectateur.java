@@ -50,9 +50,6 @@ public class Spectateur implements UserDetails{
 
 	@Enumerated(EnumType.STRING)
 	private Role role;
-	
-	@OneToMany(mappedBy = "spectateur", cascade = CascadeType.ALL)
-    private Set<Commande> commandes = new HashSet<>();
 
     @Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -179,20 +176,6 @@ public class Spectateur implements UserDetails{
      */
     public void setRole(Role role) {
         this.role = role;
-    }
-
-    /**
-     * @return Set<Commande> return the commandes
-     */
-    public Set<Commande> getCommandes() {
-        return commandes;
-    }
-
-    /**
-     * @param commandes the commandes to set
-     */
-    public void setCommandes(Set<Commande> commandes) {
-        this.commandes = commandes;
     }
 
 }

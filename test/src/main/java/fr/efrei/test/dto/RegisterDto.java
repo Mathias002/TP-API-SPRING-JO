@@ -15,11 +15,11 @@ public class RegisterDto {
 
 	@NotBlank(message= "Veuillez saisir un nom")
 	@Size(min = 2, message = "La nom doit contenir minimun 2 caractères")
-	private String Nom;
+	private String nom;
 	
 	@NotBlank(message= "Veuillez saisir un prénom")
     @Size(min = 2, message = "La prénom doit contenir minimun 2 caractères")
-	private String Prenom;
+	private String prenom;
 
 	public String getEmail() {
 		return email;
@@ -38,18 +38,18 @@ public class RegisterDto {
 	}
 
 	public String getNom() {
-		return Nom;
+		return nom;
 	}
 
 	public void setNom(String Nom) {
-		this.Nom = Nom;
+		this.nom = Nom;
 	}
 	
 	public String getPrenom() {
-		return Prenom;
+		return prenom;
 	}
 
 	public void setPrenom(String Prenom) {
-		this.Prenom = Prenom;
+		this.prenom = Prenom;
 	}
 }

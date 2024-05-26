@@ -1,6 +1,5 @@
 package fr.efrei.test.dto;
 
-import fr.efrei.test.model.Spectateur;
 import jakarta.validation.constraints.*;
 
 public class UpdateCommande {
@@ -10,7 +9,12 @@ public class UpdateCommande {
 	private String nom;
 
     @NotBlank(message = "Veuillez saisir un spectateur")
-    private Spectateur spectateur;
+    private String spectateur;
+
+    public UpdateCommande(String nom, String spectateur) {
+        this.nom = nom;
+        this.spectateur = spectateur;
+    }
 
     /**
      * @return String return the nom
@@ -26,11 +30,11 @@ public class UpdateCommande {
         this.nom = nom;
     }
 
-    public Spectateur getSpectateur() {
+    public String getSpectateur() {
         return spectateur;
     }
 
-    public void setSpectateur(Spectateur spectateur) {
+    public void setSpectateur(String spectateur) {
         this.spectateur = spectateur;
     }
 

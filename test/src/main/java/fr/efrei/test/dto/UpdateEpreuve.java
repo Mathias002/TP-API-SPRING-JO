@@ -6,6 +6,8 @@ import jakarta.validation.constraints.NotNull;
 import java.util.*;
 
 public class UpdateEpreuve {
+
+    private String uuid = this.getUuid();
     
     @NotBlank(message= "Veuillez choisir un libelle")
     private String libelleEpreuve;
@@ -17,6 +19,15 @@ public class UpdateEpreuve {
     private Date dateEpreuve;  
     
     private boolean estOuverte;
+
+    private Set<String> stadeUuids;
+
+    /**
+     * @return String return the uuid
+     */
+    public String getUuid() {
+        return uuid;
+    }
 
     /**
      * @return String return the libelleEpreuve
@@ -72,6 +83,21 @@ public class UpdateEpreuve {
      */
     public void setEstOuverte(boolean estOuverte) {
         this.estOuverte = estOuverte;
+    }
+
+
+    /**
+     * @return Set<String> return the stadeUuids
+     */
+    public Set<String> getStadeUuids() {
+        return stadeUuids;
+    }
+
+    /**
+     * @param stadeUuids the stadeUuids to set
+     */
+    public void setStadeUuids(Set<String> stadeUuids) {
+        this.stadeUuids = stadeUuids;
     }
 
 }

@@ -3,20 +3,32 @@ package fr.efrei.test.service;
 import fr.efrei.test.dto.CreateEpreuve;
 import fr.efrei.test.dto.UpdateEpreuve;
 import fr.efrei.test.model.Epreuve;
+import fr.efrei.test.model.Stade;
 import fr.efrei.test.repository.EpreuveRepository;
+import fr.efrei.test.repository.StadeRepository;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class EpreuveService {
 
 	private final EpreuveRepository repository;
+	private final StadeRepository stadeRepository;
 
 	@Autowired
-	public EpreuveService(EpreuveRepository repository) {
+    private JdbcTemplate jdbcTemplate;
+
+	@Autowired
+	public EpreuveService(EpreuveRepository repository, StadeRepository stadeRepository) {
 		this.repository = repository;
+		this.stadeRepository = stadeRepository;
 	}
 
 	public List<Epreuve> findAllEpreuves() {
@@ -35,8 +47,25 @@ public class EpreuveService {
 				epreuve.getDescriptionEpreuve(),
 				epreuve.getDateEpreuve()
 		);
+
+		Set<Stade> stades = new HashSet<>();
+        for (String uuid : epreuve.getStadeUuids()) {
+            Stade stade = stadeRepository.findOneByUuid(uuid).orElseThrow(() ->
+                new EntityNotFoundException("Stade non trouvé avec l'UUID: " + uuid));
+            stades.add(stade);
+        }
+        epreuveACreer.setStade(stades);
+		
 		// je suis dans une entité
-		return repository.save(epreuveACreer);
+		Epreuve savedEpreuve =  repository.save(epreuveACreer);
+
+		for (String stadeUuid : epreuve.getStadeUuids()) {
+            jdbcTemplate.update("INSERT INTO heberge (stade_uuid, epreuve_uuid) VALUES (?, ?)",
+                    stadeUuid, savedEpreuve.getUuid());
+        }
+
+		return savedEpreuve;
+
 	}
 
 	@Transactional
@@ -57,7 +86,22 @@ public class EpreuveService {
 			epreuveAModifier.setDescriptionEpreuve(epreuve.getDescriptionEpreuve());
 			epreuveAModifier.setDateEpreuve(epreuve.getDateEpreuve());
 			epreuveAModifier.setEstOuverte(epreuve.isEstOuverte());
-			repository.save(epreuveAModifier);
+
+			Epreuve savedEpreuve =  repository.save(epreuveAModifier);
+
+			List<String> stadeUuids = repository.findStadeUuidsByEpreuveUuid(epreuve.getUuid());
+
+			for (String stadeUuid : stadeUuids) {
+				System.out.println("Suppression de la relation pour le stade : " + stadeUuid);
+				jdbcTemplate.update("DELETE FROM `heberge` WHERE `stade_uuid` = ? AND `epreuve_uuid` = ?",
+						stadeUuid, epreuve.getUuid());
+			}
+
+			for (String stadeUuid : epreuve.getStadeUuids()) {
+				System.out.println("Ajout de la relation pour le stade : " + stadeUuid);
+				jdbcTemplate.update("INSERT INTO heberge (stade_uuid, epreuve_uuid) VALUES (?, ?)",
+						stadeUuid, savedEpreuve.getUuid());
+			}
 			return true;
 		}
 		return false;
@@ -73,7 +117,17 @@ public class EpreuveService {
                 epreuveAModifier.setDateEpreuve(epreuve.getDateEpreuve());
                 epreuveAModifier.setEstOuverte(epreuve.isEstOuverte());
 			}
-			repository.save(epreuveAModifier);
+			Epreuve savedEpreuve =  repository.save(epreuveAModifier);
+
+			for (String stadeUuid : epreuve.getStadeUuids()) {
+				jdbcTemplate.update("DELETE FROM `heberge` WHERE `stade_uuid` = ? AND `epreuve_uuid` = ?",
+						stadeUuid, savedEpreuve.getUuid());
+			}
+
+			for (String stadeUuid : epreuve.getStadeUuids()) {
+				jdbcTemplate.update("INSERT INTO heberge (stade_uuid, epreuve_uuid) VALUES (?, ?)",
+						stadeUuid, savedEpreuve.getUuid());
+			}
 			return true;
 		}
 		return false;

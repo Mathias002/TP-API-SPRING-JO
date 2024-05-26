@@ -17,6 +17,8 @@ public class CreateEpreuve {
     private Date dateEpreuve;  
     
     private boolean estOuverte = false;
+
+    private Set<String> stadeUuids;
     
     /**
      * @return String return the libelleEpreuve
@@ -72,6 +74,14 @@ public class CreateEpreuve {
      */
     public void setEstOuverte(boolean estOuverte) {
         this.estOuverte = estOuverte;
+    }
+
+    public Set<String> getStadeUuids() {
+        return stadeUuids;
+    }
+
+    public void setStadeUuids(Set<String> stadeUuids) {
+        this.stadeUuids = stadeUuids;
     }
 
 }
