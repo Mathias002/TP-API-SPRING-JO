@@ -16,9 +16,6 @@ public interface EpreuveRepository extends JpaRepository<Epreuve, String> {
 	// SELECT * FROM Epreuve where uuid = ?
 	Optional<Epreuve> findOneByUuid(String uuid);
 
-	// SELECT uuid FROM stade JOIN heberge ON stade.uuid = heberge.stade_uuid JOIN epreuve ON epreuve.uuid = heberge.epreuve_uuid WHERE epreuve.uuid = ?"
-    List<String> findStadeUuidsByEpreuveUuid(String uuid);
-
 	Epreuve save(Epreuve epreuve);
 
 	void deleteByUuid(String uuid);

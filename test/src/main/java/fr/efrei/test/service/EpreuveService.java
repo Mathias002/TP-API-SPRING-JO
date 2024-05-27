@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -89,16 +91,11 @@ public class EpreuveService {
 
 			Epreuve savedEpreuve =  repository.save(epreuveAModifier);
 
-			List<String> stadeUuids = repository.findStadeUuidsByEpreuveUuid(epreuve.getUuid());
-
-			for (String stadeUuid : stadeUuids) {
-				System.out.println("Suppression de la relation pour le stade : " + stadeUuid);
-				jdbcTemplate.update("DELETE FROM `heberge` WHERE `stade_uuid` = ? AND `epreuve_uuid` = ?",
-						stadeUuid, epreuve.getUuid());
-			}
+			// Suppression des relations existantes
+            String sqlDelete = "DELETE FROM heberge WHERE epreuve_uuid = '" + savedEpreuve.getUuid() + "'";
+            jdbcTemplate.update(sqlDelete);
 
 			for (String stadeUuid : epreuve.getStadeUuids()) {
-				System.out.println("Ajout de la relation pour le stade : " + stadeUuid);
 				jdbcTemplate.update("INSERT INTO heberge (stade_uuid, epreuve_uuid) VALUES (?, ?)",
 						stadeUuid, savedEpreuve.getUuid());
 			}
@@ -116,19 +113,18 @@ public class EpreuveService {
                 epreuveAModifier.setDescriptionEpreuve(epreuve.getDescriptionEpreuve());
                 epreuveAModifier.setDateEpreuve(epreuve.getDateEpreuve());
                 epreuveAModifier.setEstOuverte(epreuve.isEstOuverte());
+				Epreuve savedEpreuve =  repository.save(epreuveAModifier);
+	
+				// Suppression des relations existantes
+				String sqlDelete = "DELETE FROM heberge WHERE epreuve_uuid = '" + savedEpreuve.getUuid() + "'";
+				jdbcTemplate.update(sqlDelete);
+	
+				for (String stadeUuid : epreuve.getStadeUuids()) {
+					jdbcTemplate.update("INSERT INTO heberge (stade_uuid, epreuve_uuid) VALUES (?, ?)",
+							stadeUuid, savedEpreuve.getUuid());
+				}
+				return true;
 			}
-			Epreuve savedEpreuve =  repository.save(epreuveAModifier);
-
-			for (String stadeUuid : epreuve.getStadeUuids()) {
-				jdbcTemplate.update("DELETE FROM `heberge` WHERE `stade_uuid` = ? AND `epreuve_uuid` = ?",
-						stadeUuid, savedEpreuve.getUuid());
-			}
-
-			for (String stadeUuid : epreuve.getStadeUuids()) {
-				jdbcTemplate.update("INSERT INTO heberge (stade_uuid, epreuve_uuid) VALUES (?, ?)",
-						stadeUuid, savedEpreuve.getUuid());
-			}
-			return true;
 		}
 		return false;
 	}

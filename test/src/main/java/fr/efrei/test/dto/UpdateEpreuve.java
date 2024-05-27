@@ -20,7 +20,7 @@ public class UpdateEpreuve {
     
     private boolean estOuverte;
 
-    private Set<String> stadeUuids;
+    private List<String> stadeUuids;
 
     /**
      * @return String return the uuid
@@ -89,14 +89,14 @@ public class UpdateEpreuve {
     /**
      * @return Set<String> return the stadeUuids
      */
-    public Set<String> getStadeUuids() {
+    public List<String> getStadeUuids() {
         return stadeUuids;
     }
 
     /**
      * @param stadeUuids the stadeUuids to set
      */
-    public void setStadeUuids(Set<String> stadeUuids) {
+    public void setStadeUuids(List<String> stadeUuids) {
         this.stadeUuids = stadeUuids;
     }
 
