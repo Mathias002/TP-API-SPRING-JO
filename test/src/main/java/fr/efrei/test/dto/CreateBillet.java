@@ -1,43 +1,34 @@
 package fr.efrei.test.dto;
-import fr.efrei.test.model.Boutique;
-import fr.efrei.test.model.Commande;
-import fr.efrei.test.model.Epreuve;
-import fr.efrei.test.model.Spectateur;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class CreateBillet {
-    
-    @NotBlank
-    private String uuid;
     
     @NotBlank(message = "Veuillez saisir un nom")
     @Size(min = 2, message = "Le nom doit contenir minimun 2 caractères")
     private String nom;
 
-    @NotBlank(message = "Veuillez saisir un prix")
+    @NotNull(message = "Veuillez saisir un prix")
     private Float prix;
    
     private boolean isValid = false;
     
     @NotBlank(message = "Veuillez saisir une boutique")
-    private Boutique boutique;
+    private String boutique;
 
     @NotBlank(message = "Veuillez saisir une commande")
-    private Commande commande;
+    private String commande;
 
     @NotBlank(message = "Veuillez saisir une epreuve")
-    private Epreuve epreuve;
+    private String epreuve;
 
-    @NotBlank(message = "Veuillez saisir un spectateur")
-    private Spectateur spectateur;
-
-
-    /**
-     * @return String return the uuid
-     */
-    public String getUuid() {
-        return uuid;
+    public CreateBillet(String nom, Float prix, String boutique, String commande, String epreuve) {
+        this.nom = nom;
+        this.prix = prix;
+        this.boutique = boutique;
+        this.commande = commande;
+        this.epreuve = epreuve;
     }
 
     /**
@@ -62,33 +53,24 @@ public class CreateBillet {
     }
 
     /**
-     * @return Boutique return the boutique
+     * @return String return the boutique
      */
-    public Boutique getBoutique() {
+    public String getBoutique() {
         return boutique;
     }
 
     /**
-     * @return Commande return the commande
+     * @return String return the commande
      */
-    public Commande getCommande() {
+    public String getCommande() {
         return commande;
     }
 
-
     /**
-     * @return Epreuve return the epreuve
+     * @return String return the epreuve
      */
-    public Epreuve getEpreuve() {
+    public String getEpreuve() {
         return epreuve;
-    }
-
-
-    /**
-     * @return Spectateur return the spectateur
-     */
-    public Spectateur getSpectateur() {
-        return spectateur;
     }
 
 }

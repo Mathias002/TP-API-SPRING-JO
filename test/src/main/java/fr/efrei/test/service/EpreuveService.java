@@ -74,7 +74,12 @@ public class EpreuveService {
 	public boolean delete(String uuid) {
 		Epreuve epreuveASupprimer = findEpreuveById(uuid);
 		if(epreuveASupprimer != null ){
-			repository.save(epreuveASupprimer);
+
+			// Suppression des relations existantes
+            String sqlDelete = "DELETE FROM heberge WHERE epreuve_uuid = '" + uuid + "'";
+            jdbcTemplate.update(sqlDelete);
+
+			repository.deleteByUuid(uuid);
 			return true;
 		}
 		return false;

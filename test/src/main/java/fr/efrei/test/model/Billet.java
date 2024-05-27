@@ -40,19 +40,11 @@ public class Billet {
     @JoinColumn(name = "epreuve_uuid")
     private Epreuve epreuve;
 
-    @ManyToOne
-    @JoinColumn(name = "spectateur_uuid")
-    private Spectateur spectateur;
-
     // completer le constructeur
     public Billet() {}
-    public Billet(String nom, Float prix, Boutique boutique, Commande commande, Epreuve epreuve, Spectateur spectateur ) {
+    public Billet(String nom, Float prix) {
         this.nom = nom;
         this.prix = prix;
-        this.boutique = boutique;
-        this.commande = commande;
-        this.epreuve = epreuve;
-        this.spectateur = spectateur;
     }    
 
 
@@ -180,20 +172,6 @@ public class Billet {
      */
     public void setEpreuve(Epreuve epreuve) {
         this.epreuve = epreuve;
-    }
-
-    /**
-     * @return Spectateur return the spectateur
-     */
-    public Spectateur getSpectateur() {
-        return spectateur;
-    }
-
-    /**
-     * @param spectateur the spectateur to set
-     */
-    public void setSpectateur(Spectateur spectateur) {
-        this.spectateur = spectateur;
     }
 
 }
