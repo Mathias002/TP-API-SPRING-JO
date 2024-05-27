@@ -4,34 +4,36 @@ import fr.efrei.test.model.Commande;
 import fr.efrei.test.model.Epreuve;
 import fr.efrei.test.model.Spectateur;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class UpdateBillet {
-    
-    @NotBlank
-    private String uuid;
     
     @NotBlank(message = "Veuillez saisir un nom")
     @Size(min = 2, message = "Le nom doit contenir minimun 2 caractères")
     private String nom;
 
-    @NotBlank(message = "Veuillez saisir un prix")
+    @NotNull(message = "Veuillez saisir un prix")
     private Float prix;
    
     private boolean isValid = false;
     
     @NotBlank(message = "Veuillez saisir une boutique")
-    private Boutique boutique;
+    private String boutique;
 
     @NotBlank(message = "Veuillez saisir une commande")
-    private Commande commande;
+    private String commande;
 
     @NotBlank(message = "Veuillez saisir une epreuve")
-    private Epreuve epreuve;
+    private String epreuve;
 
-    @NotBlank(message = "Veuillez saisir un spectateur")
-    private Spectateur spectateur;
-
+    public UpdateBillet(String nom, Float prix, String boutique, String commande, String epreuve) {
+        this.nom = nom;
+        this.prix = prix;
+        this.boutique = boutique;
+        this.commande = commande;
+        this.epreuve = epreuve;
+    }
 
     /**
      * @return String return the nom
@@ -76,59 +78,45 @@ public class UpdateBillet {
     }
 
     /**
-     * @return Boutique return the boutique
+     * @return String return the boutique
      */
-    public Boutique getBoutique() {
+    public String getBoutique() {
         return boutique;
     }
 
     /**
      * @param boutique the boutique to set
      */
-    public void setBoutique(Boutique boutique) {
+    public void setBoutique(String boutique) {
         this.boutique = boutique;
     }
 
     /**
-     * @return Commande return the commande
+     * @return String return the commande
      */
-    public Commande getCommande() {
+    public String getCommande() {
         return commande;
     }
 
     /**
      * @param commande the commande to set
      */
-    public void setCommande(Commande commande) {
+    public void setCommande(String commande) {
         this.commande = commande;
     }
 
     /**
-     * @return Epreuve return the epreuve
+     * @return String return the epreuve
      */
-    public Epreuve getEpreuve() {
+    public String getEpreuve() {
         return epreuve;
     }
 
     /**
      * @param epreuve the epreuve to set
      */
-    public void setEpreuve(Epreuve epreuve) {
+    public void setEpreuve(String epreuve) {
         this.epreuve = epreuve;
-    }
-
-    /**
-     * @return Spectateur return the spectateur
-     */
-    public Spectateur getSpectateur() {
-        return spectateur;
-    }
-
-    /**
-     * @param spectateur the spectateur to set
-     */
-    public void setSpectateur(Spectateur spectateur) {
-        this.spectateur = spectateur;
     }
 
 }
