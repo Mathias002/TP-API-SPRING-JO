@@ -25,6 +25,14 @@ A savoir :
 - La possibilité de se connecter de manière sécurisée avec un Rôle 
 - La présence de six CRUD (Spectateur / Stade / Commande / Boutique / Epreuve / Billet)
 
+Chemin d'accès au fichier de lancement de l'API :
+
+    - /test/src/main/java/fr/efrei/test/TestApplication.java
+
+Accès au MCD de mon API :
+
+    - /MCD-API-SPRING.lo1
+
  ⚠️ Il est important de préciser qu'il est nécessaire de faire attention de bien configurer le port d'écoute, mon projet est configuré pour le port 8080. De plus il faut au préalable avoir crée une base de donnée portant le même nom que celle inscrite dans le fichier de configuration "application.properties" par défaut "tp-api-spring" ⚠️
 
 ## 📝 INSCRIPTION 📝
@@ -260,6 +268,10 @@ A savoir :
     - Suppression ❌
 
         La suppression s'effectue via la route : localhost:8080/billets/{billet_uuid} avec comme requête "DELETE"
+
+## 🏁 CONCLUSION 🏁
+
+    Voilà tout concernant ce projet de billetterie, il est loin d'être complet et parfait, mais il embarque (normalement) le minimum requis. Merci d'avoir pris le temps de lire cette explication de mon projet, et si vous avez eu le courage de le lire jusqu'au bout, je vous souhaite bon courage pour les corrections :) 
 
 
 
