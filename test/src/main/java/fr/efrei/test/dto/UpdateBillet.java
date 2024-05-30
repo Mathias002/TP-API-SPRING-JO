@@ -1,8 +1,4 @@
 package fr.efrei.test.dto;
-import fr.efrei.test.model.Boutique;
-import fr.efrei.test.model.Commande;
-import fr.efrei.test.model.Epreuve;
-import fr.efrei.test.model.Spectateur;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

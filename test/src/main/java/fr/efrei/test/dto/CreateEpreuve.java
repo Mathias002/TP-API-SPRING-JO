@@ -2,15 +2,18 @@ package fr.efrei.test.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 import java.util.*;
 
 public class CreateEpreuve {
     
     @NotBlank(message= "Veuillez choisir un libelle")
+    @Size(min = 2, message = "La nom doit contenir minimun 2 caractères")
     private String libelleEpreuve;
 
     @NotBlank(message= "Veuillez choisir une description")
+    @Size(min = 2, message = "La nom doit contenir minimun 2 caractères")
     private String descriptionEpreuve;
 
     @NotNull(message= "Veuillez choisir la date de l'épreuve")
